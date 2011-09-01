@@ -10,13 +10,17 @@
 
 }
 \usage{
-trackDistance(track, longlat = FALSE)
+trackDistance(x1, y1, x2, y2, longlat = TRUE) 
 
 %gcdist(lon1, lat1, lon2, lat2)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{track}{matrix of 2-columns, with x/y coordinates }
+  \item{x1}{matrix of 2-columns, with x/y coordinates OR a vector of x
+    start coordinates }
+  \item{x2}{vector of x end coordinates, if x1 is not a matrix}
+  \item{y1}{vector of y start coordinates, if x1 is not a matrix}
+  \item{y2}{vector of y end coordinates, if x1 is not a matrix}
   \item{longlat}{if FALSE, Euclidean distance, if TRUE Great Circle distance}
 
  % \item{lon1, lon2}{vectors of paired longitude coordinates}
@@ -27,10 +31,11 @@ trackDistance(track, longlat = FALSE)
 }
 \details{
 
-  trackDistance calls source code identical to sp's spDistN when longlat is TRUE.
-
-  This originally used \code{spDistsN1} but now implements the sp gcdist
-  source directly in R.
+  Distance values are in the units of the input coordinate system when
+  longlat is FALSE, and in kilometres when longlat is TRUE.
+  
+  This originally used \code{\link[sp]{spDistsN1}} but now implements
+  the sp gcdist source directly in R.
 
 }
 \references{

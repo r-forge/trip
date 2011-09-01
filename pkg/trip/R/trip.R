@@ -1,3 +1,22 @@
+if (!isGeneric("trip"))
+	setGeneric("trip", function(obj, TORnames)
+		standardGeneric("trip"))
+
+if (!isGeneric("points"))
+	setGeneric("points", function(x, ...)
+		standardGeneric("points"))
+
+if (!isGeneric("lines"))
+	setGeneric("lines", function(x, ...)
+		standardGeneric("lines"))
+
+if (!isGeneric("text"))
+	setGeneric("text", function(x, ...)
+		standardGeneric("text"))
+
+if (!isGeneric("subset"))
+	setGeneric("subset", function(x, ...)
+		standardGeneric("subset"))
 
 setClass("trip", contains = c("TimeOrderedRecords", "SpatialPointsDataFrame"))
 
@@ -31,7 +50,7 @@ validtordata <- function(object) {
   short <- which(unlist(tapply(time, id, length)) < 3)
      ## maybe trip enforces this
   if (length(short)>0) {
-    mess <- "\n  less than 3 locations for ids:\n"
+    mess <- "\n  fewer than 3 locations for ids:\n"
     mess <- paste(mess, paste(TORlevs[short],  collapse = ","), sep = "")
     return(mess)
   }
@@ -41,11 +60,46 @@ validtordata <- function(object) {
 
 setValidity("trip", validtordata)
 
+## setMethod("spTransform", signature(x = "trip", "CRS"),
+## 	function (x, CRSobj, ...)
+## 	{
+
+## 	        xSP <- spTransform(as(x, "SpatialPointsDataFrame"), CRSobj, ...)
+
+## 	        xDF <- x@data
+## 	        res <- SpatialPointsDataFrame(coords = coordinates(xSP),
+## 	            data = xDF, coords.nrs = numeric(0), proj4string = CRS(proj4string(xSP)))
+
+## 	        trip(res, getTORnames(x))
+## 	    }
+## )
+
+## if (!isGeneric("spTransform"))
+## 	setGeneric("spTransform", function(x, CRSobj, ...)
+## 		standardGeneric("spTransform"))
+
+## setMethod("spTransform", signature("trip", "CRS"),
+##           function (x, CRSobj, ...)
+##       {
+##           if (!require(rgdal)) stop("package rgdal is not available, please install it for reprojection with spTransform")
+##           tor <- getTORnames(x)
+##           xSP <- as(x, "SpatialPointsDataFrame")
+##           xSP <- rgdal:::spTransform(xSP, CRSobj, ...)
+##           trip(xSP, tor)
+
+##       }
+##       )
+
+tripTransform <- function(x, crs, ...) {
+    if(!inherits(crs, "CRS")) crs <- CRS(crs)
+      if (!require(rgdal)) stop("package rgdal is not available, please install it for reprojection with spTransform")
+           tor <- getTORnames(x)
+           xSP <- as(x, "SpatialPointsDataFrame")
+           xSP <- spTransform(xSP, crs, ...)
+           trip(xSP, tor)
+}
 
 
-if (!isGeneric("trip"))
-	setGeneric("trip", function(obj, TORnames)
-		standardGeneric("trip"))
 
 
 trip <- function(obj, TORnames) {
@@ -323,12 +377,6 @@ print.trip <- function(x, ...) {
 }
 
 
-
-
-
-
-
-
 setMethod("summary", "trip", summary.tordata)
 
 setMethod("show", "trip", function(object) print.trip(object))
@@ -337,32 +385,27 @@ setMethod("show", "trip", function(object) print.trip(object))
 
 
 
-#setMethod("spTransform", signature(x = "trip", "CRS"),
-#	function (x, CRSobj, ...)
-#	{
 
-#	        xSP <- spTransform(as(x, "SpatialPointsDataFrame"), CRSobj, ...)
-
-#	        xDF <- x@data
-#	        res <- SpatialPointsDataFrame(coords = coordinates(xSP),
-#	            data = xDF, coords.nrs = numeric(0), proj4string = CRS(proj4string(xSP)))
-
-#	        trip(res, getTORnames(x))
-#	    }
-#)
-
+## MDS 2010-07-06
 setMethod("lines", signature(x = "trip"),
-	function(x, ...) {
-		tor <- getTORnames(x)
-		lx <- split(1:nrow(x), x[[tor[2]]])
-		coords <- coordinates(x)
+	function(x, col = hsv(seq(0, 0.9, length = length(summary(x)$tripID)), 0.8, 0.95), ...) {
+		plot(as(x, "SpatialLinesDataFrame"),  col = col, add = TRUE, ...)
+		}
+)
 
-			col <- hsv(seq(0, 0.5, length = length(lx)))
-			for (i in 1:length(lx)) {
-			        lines(coords[lx[[i]], ], col = col[i], ...)
-			}
-	}
-	)
+
+## setMethod("lines", signature(x = "trip"),
+## 	function(x, ...) {
+## 		tor <- getTORnames(x)
+## 		lx <- split(1:nrow(x), x[[tor[2]]])
+## 		coords <- coordinates(x)
+
+## 			col <- hsv(seq(0, 0.5, length = length(lx)))
+## 			for (i in 1:length(lx)) {
+## 			        lines(coords[lx[[i]], ], col = col[i], ...)
+## 			}
+## 	}
+## 	)
 setMethod("plot", signature(x = "trip", y = "missing"),
 	function(x, y, ...) {
 		plot(as(x, "SpatialPoints"), ...)

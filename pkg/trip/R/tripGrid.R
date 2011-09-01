@@ -51,12 +51,16 @@ for legacy function")
             zero.lengths <- TRUE
             zeros <- which(!lngths > 0)
             cc <- coordinates(this)[zeros, , drop = FALSE]
+            op <- options(warn = -1)
             x.ppp <- ppp(cc[, 1], cc[, 2], window = ow)
+            options(op)
             if (method == "pixellate") {
                 v <- pixellate(x.ppp, W = ow, weights = dt[zeros])$v
             }
             if (method == "density") {
                 v <- density(x.ppp, ...)$v
+
+
             }
 
             res$z <- res$z + t(v)
@@ -69,9 +73,20 @@ for legacy function")
             v <- pixellate(x.psp, W = ow, weights = weights)$v
         }
         if (method == "density") {
-            v <- density(x.psp, ...)$v
-        }
+            #v <- density(x.psp, ...)$v
+                for (li in 1:x.psp$n) {
+                 dens <- density(x.psp[li], ...)$v
+                 if (li == 1) {
+                     v <- dens
+                 } else {
+                     v <- v + dens * dt[li]
+                 }
+
+             }
+            }
         res$z <- res$z + t(v)
+
+
     }
     if (zero.lengths) {
         warning("zero length lines present, time durations binned into cells assuming point-presence of degenerate line segment")
@@ -86,55 +101,6 @@ for legacy function")
 }
 
 
-## cases
-
-##  lines, dTime, pixellate - tripGrid
-##  lines, sigma, density - tripGrid
-##  ??lines, weights, pixellate - as.psp.trip (default is dTime)
-##  points, weights, pixellate - as.ppp.trip
-##  points, sigma, density - as.ppp.trip
-
-## do we want IDs or times? (let the user do it?)
-as.ppp.trip <- function(X) {
-    as.ppp.SpatialPointsDataFrame(X)
-}
-setAs("trip", "ppp", function(from) as.ppp.trip(from))
-
-as.psp.trip <- function(X) {
-    split.X <- split(X, X[[getTORnames(X)[2]]])
-    ow <- owin(bbox(X)[1,], bbox(X)[2,])
-
-    as.psp.trip1 <- function(this, ow = NULL) {
-        if (is.null(ow)) ow <- owin(bbox(this)[1,], bbox(this)[2,])
-        tor <- getTORnames(this)
-        cc <- coordinates(this)
-        xs <- coordinates(this)[, 1]
-        ys <- coordinates(this)[, 2]
-        dt <- diff(unclass(this[[tor[1]]]))
-
-       psp(xs[-length(xs)], ys[-length(ys)], xs[-1], ys[-1], window = ow, marks = dt)
-    }
-    ## there is no split.psp
-    do.call("superimposePSP", lapply(split.X, as.psp.trip1, ow = ow))
-}
-
-setAs("trip", "psp", function(from) as.psp.trip(from))
-
-## GIS integration
-## as.trip.SpatialLinesDataFrame (use summary info - distance, time duration, ID)
-
-as.trip.SpatialLinesDataFrame <- function(from) {
-    split.from <- split(from, from[[getTORnames(from)[2]]])
-    sdf <- summary(from)
-    df <- data.frame(tripID = sdf$tripID, tripStart = sdf$tmins, tripEnd = sdf$tmaxs, tripDur = as.vector(sdf$tripDurationSeconds), row.names = sdf$tripID)
-    lns <- vector("list", nrow(df))
-    for (i in 1:length(lns)) {
-        lns[[i]] <- Lines(list(Line(coordinates(split.from[[i]]))), ID = sdf$tripID[i])
-    }
-    SpatialLinesDataFrame(SpatialLines(lns, proj4string = CRS(proj4string(from))), df)
-}
-
-setAs("trip", "SpatialLinesDataFrame", as.trip.SpatialLinesDataFrame)
 
 
 ## tripGrid <- function(x, grid = NULL, method = "pixellate",...) {

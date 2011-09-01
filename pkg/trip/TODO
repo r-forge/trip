@@ -1,0 +1,13 @@
+
+Explore rgeos Intersect for tripGrid alternative
+
+namespace
+
+make trip.split.exact a cut() method
+
+
+
+DONE
+
+Investigate uses of "trackDistance" for handling projection option vs. default
+

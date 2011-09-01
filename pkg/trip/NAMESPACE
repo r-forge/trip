@@ -1,0 +1,13 @@
+export(trip)
+ export(print.trip)
+ export(summary.tordata)
+ export(print.summary.tordata)
+S3method(print, trip)
+
+## enables "show" and "print" for tr
+importMethodsFrom(sp, summary)
+
+## importFrom(sp, SpatialPointsDataFrame)
+
+##importFrom(methods, show)
+##exportClass(trip)
