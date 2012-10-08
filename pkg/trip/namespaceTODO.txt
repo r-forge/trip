@@ -1,3 +1,4 @@
+
 o imports
 a
 trip.R
@@ -35,7 +36,6 @@ subset.trip
 print.trip
 summary.tordata
 print.summary.tordata
-
 
 
 
