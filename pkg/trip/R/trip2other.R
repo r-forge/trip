@@ -30,7 +30,7 @@ if(!isClass("ltraj"))
 
 ltraj2trip <- function (ltr)
 {
-    require(adehabitat)
+    require(adehabitatLT)
     if (!inherits(ltr, "ltraj"))
         stop("ltr should be of class \"ltraj\"")
 

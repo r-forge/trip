@@ -4,11 +4,14 @@ ACKNOWLEDGEMENTS
 
 	o Thanks to Sebastian Luque for advice on NAMESPACE fixes
 
+	o modified dependency on adehabitat to adehabitatLT
+
 	o removed class definitions for ppp, psp and owin, now imported from maptools
 
         o update to trackDistance documentation, thanks to Andrew Irwin
 
         o added a NAMESPACE file
+
 
         CHANGES IN trip VERSION 1.1-10
 
