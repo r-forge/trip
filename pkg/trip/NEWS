@@ -1,5 +1,7 @@
         CHANGES IN trip VERSION 1.1-11
 
+	o dummy change for r-forge
+	
         o update to trackDistance documentation, thanks to Andrew Irwin
         
         o added a NAMESPACE file
