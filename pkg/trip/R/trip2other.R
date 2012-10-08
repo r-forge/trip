@@ -1,15 +1,19 @@
 # trip definitions so spatstat does not need to be available
-if (!isClass("ppp"))
-	setClass("ppp")
-
-if (!isClass("psp"))
-	setClass("psp")
-
-if (!isClass("owin"))
-	setClass("owin")
-
 if(!isClass("ltraj"))
     setClass("ltraj")
+
+## not needed, now imported by NAMESPACE from maptools
+## help by S. Luque, 2012-10-09
+##if (!isClass("ppp"))
+##	setClass("ppp")
+
+##if (!isClass("psp"))
+##	setClass("psp")
+
+##if (!isClass("owin"))
+##	setClass("owin")
+
+
 
 #if(!isGeneric("as.ltraj"))
 #    setGeneric("as.ltraj")
