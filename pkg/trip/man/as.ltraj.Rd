@@ -37,7 +37,7 @@ d <- data.frame(x = 1:10, y = rnorm(10), tms = Sys.time() + 1:10, id = gl(2, 5))
 coordinates(d) <- ~x+y
 
 tr <- trip(d, c("tms", "id"))
-require(adehabitat)
+require(adehabitatLT)
 l <- as.ltraj.trip(tr)
 
 ltraj2trip(l)
