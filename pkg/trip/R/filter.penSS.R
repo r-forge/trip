@@ -1,4 +1,9 @@
-penalized <- function(x) {
+
+
+
+filter.penSS <- function(tr,lambda,first=TRUE,last=TRUE,...) {
+
+    penalized <- function(x) {
 
             ## Form smoothed track
             p <- p.obs
@@ -18,10 +23,6 @@ penalized <- function(x) {
             ## This is the penalized sum of squares
             (sum(d^2) + lambda*sum(v^2))/n^2
         }
-
-
-filter.penSS <- function(tr,lambda,first=TRUE,last=TRUE,...) {
-
         if (length(summary(tr)$tripID) > 1) {
             warning("trip object contains multiple events, only the first trip used")
             tr <- tr[tr[[getTORnames(tr)[2]]] == summary(tr)$tripID[1], ]
@@ -39,7 +40,7 @@ filter.penSS <- function(tr,lambda,first=TRUE,last=TRUE,...) {
         ##dt <- diff(unclass(tr$Time)/(24*60*60))
         dt <- diff(unclass(tr[[getTORnames(tr)[1]]])/(24*60*60))
 
-        mn <- nlm(penalized,as.matrix(p.obs[sub,]),...)
+        mn <- nlm(penalized, as.matrix(p.obs[sub,]), ...)
         m <- n-(first+last)
         res <- coordinates(tr)
 
