@@ -4,6 +4,8 @@ ACKNOWLEDGEMENTS
 
 	o Thanks to Sebastian Luque for advice on NAMESPACE fixes
 
+	o 
+	
 	o modified dependency on adehabitat to adehabitatLT
 
 	o removed class definitions for ppp, psp and owin, now imported from maptools
