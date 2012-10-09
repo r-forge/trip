@@ -85,7 +85,9 @@ setAs("ltraj", "trip", function(from) ltraj2trip(from))
 
 ## do we want IDs or times? (let the user do it?)
 as.ppp.trip <- function(X, ..., fatal) {
-    require(spatstat)
+
+    ## still needed? with importFrom(maptools,as.ppp.SpatialPointsDataFrame)?
+    ##    require(spatstat)
 
     ## not needed, and not possible since classes imported using
     ## NAMESPACE MDS 2012-10-09
@@ -94,6 +96,7 @@ as.ppp.trip <- function(X, ..., fatal) {
 
     as.ppp.SpatialPointsDataFrame(X)
 }
+
 setAs("trip", "ppp", function(from) as.ppp.trip(from))
 
 ## spatstat 1.22

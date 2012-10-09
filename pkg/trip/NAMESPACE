@@ -12,7 +12,8 @@ import(
 importClassesFrom(maptools,
                   ppp, psp, owin)
 
-
+## does this mean require(spatstat) not needed in as.ppp.trip?
+importFrom(maptools, as.ppp.SpatialPointsDataFrame)
 
 
 ##export(trip)
@@ -31,7 +32,7 @@ importClassesFrom(maptools,
 ##exportClass(trip)
 
 ## FUNCTIONS DEFINED
-## 
+##
 ## F:\build\rforge\pkg\trip\R>grep "<- function" * | grep "#" --invert
 ## TimeOrderedRecords.R:TimeOrderedRecords <- function(x) {
 ## TimeOrderedRecords.R:getTORnames <- function(obj) obj@TOR.columns
@@ -72,9 +73,9 @@ importClassesFrom(maptools,
 ## tripFunctions.R:argos.sigma <- function(x, sigma = c(100, 80, 50, 20, 10, 4,  2),
 ## tripFunctions.R:sepIdGaps <- function(id, gapdata, minGap = 3600 * 24 * 7) {
 ## tripGrid.R:  g2ow <- function(x) {
-## 
+##
 ## CLASSES DEFINED
-## 
+##
 ## F:\build\rforge\pkg\trip\R>grep setClass *
 ## TimeOrderedRecords.R:setClass("TimeOrderedRecords", representation(TOR.columns = "character"))
 ## trip.R:setClass("trip", contains = c("TimeOrderedRecords", "SpatialPointsDataFrame"))
@@ -84,4 +85,4 @@ importClassesFrom(maptools,
 ## trip2other.R:    setClass("ltraj")
 ## trip2other.R:##     setClass("im")
 ## trip2other.R:##     setClass("tess")
-## 
+##
