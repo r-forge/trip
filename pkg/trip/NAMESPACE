@@ -15,6 +15,9 @@ importClassesFrom(maptools,
 ## does this mean require(spatstat) not needed in as.ppp.trip?
 importFrom(maptools, as.ppp.SpatialPointsDataFrame)
 
+## to fix tripRbind: no visible global function definition for 'spRbind'
+importFrom(maptools, spRbind)
+
 
 ##export(trip)
 ## export(print.trip)
