@@ -1,3 +1,8 @@
+remove dependencies, all imports
+
+can tripTransform be removed without requiring rgdal for installation?
+
+incorporate Pinaud's ideas/requests
 
 Explore rgeos Intersect for tripGrid alternative
 
