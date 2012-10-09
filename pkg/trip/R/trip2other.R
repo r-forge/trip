@@ -60,7 +60,7 @@ ltraj2trip <- function (ltr)
 ## ltraj from adehabitat
 
 as.ltraj.trip <- function(xy, typeII = TRUE, slsp = "remove") {
-    require(adehabitat)
+    require(adehabitatLT)
     tor <- getTORnames(xy)
     crds <- coordinates(xy)
     as.ltraj(as.data.frame(crds), date = xy[[tor[1]]], id = xy[[tor[2]]], typeII = typeII, slsp = slsp)
@@ -86,7 +86,12 @@ setAs("ltraj", "trip", function(from) ltraj2trip(from))
 ## do we want IDs or times? (let the user do it?)
 as.ppp.trip <- function(X, ..., fatal) {
     require(spatstat)
-    require(maptools)
+
+    ## not needed, and not possible since classes imported using
+    ## NAMESPACE MDS 2012-10-09
+    ## suppressMessages(require(maptools
+    ## require(maptools)
+
     as.ppp.SpatialPointsDataFrame(X)
 }
 setAs("trip", "ppp", function(from) as.ppp.trip(from))

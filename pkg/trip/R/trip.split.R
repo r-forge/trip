@@ -22,7 +22,11 @@
 
 tripRbind <- function (obj, x)
 {
-    suppressMessages(require(maptools))
+    ## not needed, and not possible since classes imported using
+    ## NAMESPACE MDS 2012-10-09
+    ## suppressMessages(require(maptools))
+
+
     tor1 <- getTORnames(obj)
     tor2 <- getTORnames(x)
     if (!all.equal(tor1, tor2)) stop("trips are not equivalent for rbind")
