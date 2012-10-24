@@ -4,16 +4,20 @@ ACKNOWLEDGEMENTS
 
 	o Thanks to Sebastian Luque for advice on NAMESPACE fixes
 
-        o added a NAMESPACE file and package updates to make everything work, maptools is now Imports, rgdal, adehabitatLT and lattice are Suggests	
+	o thanks to Andrew Irwin for update on trackDistance documentation
+
+OVERVIEW
+
+        o added a NAMESPACE file and package updates to make
+        everything work, maptools is now Imports, rgdal, adehabitatLT
+        and lattice are Suggests
 	
 	o modified dependency on adehabitat to adehabitatLT
 
 	o removed class definitions for ppp, psp and owin, now
 	imported from maptools
 
-        o update to trackDistance documentation, thanks to Andrew Irwin
-
-
+        o update to trackDistance documentation
 
 
         CHANGES IN trip VERSION 1.1-10
