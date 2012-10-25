@@ -6,7 +6,7 @@ Suggests: locfit
 Imports: akima, lattice, mgcv, rgdal, sp, zoo
 Author: Michael Sumner and Simon Wotherspoon
 Maintainer: Michael Sumner <mdsumner@gmail.com>
-Description: Data handling and estimation functions for animal movement estimation by light level and satellite data. Image summaries from MCMC simulations of point data, binned by time interval. Various convenience functions for creating generic summary images for periods defined by the location estimation and combining those in arbitrarily specified ways.
+Description: Data handling and estimation functions for animal movement estimation from archival or satellite tags. Helper functions are included for making image summaries binned by time interval from MCMC simulations of point data.
 License: GPL-2
 URL: http://staff.acecrc.org.au/~mdsumner/Rutas/
 
