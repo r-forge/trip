@@ -1,7 +1,7 @@
 Package: trip
 Type: Package
 Title: Spatial analysis of animal track data
-Version: 1.1-11
+Version: 1.1-12
 Depends: methods, sp (>= 0.9-64), spatstat (>= 1.18-4)
 Imports: maptools
 Suggests: rgdal, adehabitatLT, lattice

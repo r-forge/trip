@@ -1,3 +1,8 @@
+        CHANGES IN trip VERSION 1.1-12
+
+	o reduced time taken by examples by removal with dontrun,
+	thanks to CRAN maintainers
+
         CHANGES IN trip VERSION 1.1-11
 
 ACKNOWLEDGEMENTS
@@ -5,6 +10,7 @@ ACKNOWLEDGEMENTS
 	o Thanks to Sebastian Luque for advice on NAMESPACE fixes
 
 	o thanks to Andrew Irwin for update on trackDistance documentation
+
 
 OVERVIEW
 
