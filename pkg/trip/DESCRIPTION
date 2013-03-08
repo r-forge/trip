@@ -6,12 +6,13 @@ Authors@R: c(person("Michael", "Sumner", role = c("aut", "cre"),
             person("Sebastian", "Luque", role = "ctb",
                     email = "spluque@gmail.com"),
 			person("Andrew", "Irwin", role = "ctb"),
-			person("Francois", "Rousseu", role = "ctb")
+			person("Francois", "Rousseu", role = "ctb"))
 Version: 1.1-13
 Depends: methods, sp (>= 0.9-64), spatstat (>= 1.18-4)
 Imports: maptools
 Suggests: rgdal, adehabitatLT, lattice
-Maintainer: Michael D. Sumner <mdsumner@utas.edu.au>
+Author: Michael Sumner[aut, cre], Sebastian Luque [ctb], Andrew Irwin [ctb], Francois Rousseau [ctb]
+Maintainer: Michael D. Sumner <mdsumner@gmail.com>
 Description: Functions for accessing and manipulating spatial data for animal tracking.
    Filter for speed and create time spent plots from animal track data.
 License: GPL (>=2)

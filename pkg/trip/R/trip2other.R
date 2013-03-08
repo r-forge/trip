@@ -53,7 +53,7 @@ ltraj2trip <- function (ltr)
 ##    res <- trip(res, c("date", id.val))
 
 ##    return(res)
-    trip(res, c("date", "id.burst"))
+    trip(res, c("date", "id"))
 }
 
 
