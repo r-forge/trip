@@ -43,16 +43,17 @@ ltraj2trip <- function (ltr)
     tr$y <- tr$x <- NULL
     res <- SpatialPointsDataFrame(xy, tr)
 
-    if (all.equal(tr$burst, tr$id)) {
-	 id.val <- "id"
-	} else {
-	 tr$id.burst <- paste(tr$id, tr$burst)
+ ##   if (all.equal(tr$burst, tr$id)) {
+##	 id.val <- "id"
+##	} else {
+##	 tr$id.burst <- paste(tr$id, tr$burst)
+##
+##	id.val <- "id.burst"
+##    }
+##    res <- trip(res, c("date", id.val))
 
-	id.val <- "id.burst"
-    }
-    res <- trip(res, c("date", id.val))
-
-    return(res)
+##    return(res)
+    trip(res, c("date", "id.burst"))
 }
 
 
