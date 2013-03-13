@@ -1,3 +1,7 @@
+Changes to version 0.0-39
+
+	o removed get.sst, sst.interp and supporting functions to meet CRAN licensing needs, now no need for akima or locfit
+
 Changes to version 0.0-38
 
 	o added check for very short trips that break the windowing in position.logp

@@ -2,7 +2,6 @@ Package: tripEstimation
 Type: Package
 Title: Metropolis sampler and supporting functions for estimating animal movement from archival tags and satellite fixes
 Version: 0.0-39
-Suggests: locfit
 Imports: lattice, mgcv, rgdal, sp, zoo
 Author: Michael Sumner and Simon Wotherspoon
 Maintainer: Michael Sumner <mdsumner@gmail.com>
