@@ -99,15 +99,12 @@ speedfilter <- function (x, max.speed=NULL, test=FALSE) {
 }
 
 
-## speedfilter <-
-
-## function (x, max.speed=NULL, test=FALSE)
-## {
+## speedfilter <- function (x, max.speed=NULL, test=FALSE) {
 ##     if (!is(x, "trip"))
 ##         stop("only trip objects supported")
 ##     projected <- is.projected(x)
 ##     dist <- function(x1, y1, x2, y2) sqrt((x2 - x1)^2 + (y2 -
-##         y1)^2)
+##                                                          y1)^2)
 ##     if (is.na(projected)) {
 ##         projected <- FALSE
 ##         warning("coordinate system is NA, assuming longlat . . .")
@@ -143,7 +140,7 @@ speedfilter <- function (x, max.speed=NULL, test=FALSE) {
 ##         ok <- rep(TRUE, npts)
 ##         if (npts < (pprm + 1)) {
 ##             warning("Not enough points to filter ID: \"", sub,
-##                 "\"\n continuing . . . \n")
+##                     "\"\n continuing . . . \n")
 ##             okFULL[ind] <-  ok
 ##             next
 ##         }
@@ -153,23 +150,30 @@ speedfilter <- function (x, max.speed=NULL, test=FALSE) {
 ##             n <- length(which(ok))
 ##             x1 <- xy[ok, ]
 ##             speed1 <- trackDistance(x1[-nrow(x1), 1], x1[-nrow(x1),
-##                 2], x1[-1, 1], x1[-1, 2], longlat=!projected)/(diff(unclass(tms[ok]))/3600)
+##                                                          2],
+##                                     x1[-1, 1], x1[-1, 2],
+##                                     longlat=!projected) /
+##                                         (diff(unclass(tms[ok]))/3600)
 ##             speed2 <- trackDistance(x1[-((nrow(x1) - 1):nrow(x1)),
-##                 1], x1[-((nrow(x1) - 1):nrow(x1)), 2], x1[-(1:2),
-##                 1], x1[-(1:2), 2], longlat=!projected)/((unclass(tms[ok][-c(1,
-##                 2)]) - unclass(tms[ok][-c(n - 1, n)]))/3600)
+##                                        1], x1[-((nrow(x1) - 1):nrow(x1)), 2],
+##                                     x1[-(1:2), 1],
+##                                     x1[-(1:2), 2],
+##                                     longlat=!projected) /
+##                                         ((unclass(tms[ok][-c(1, 2)]) -
+##                                           unclass(tms[ok][-c(n - 1, n)])) /
+##                                          3600)
 ##             thisIndex <- index[ok]
 ##             npts <- length(speed1)
 ##             if (npts < pprm) {
 ##                 next
 ##             }
 ##             sub1 <- rep(1:2, npts - offset) + rep(1:(npts - offset),
-##                 each=2)
+##                                                   each=2)
 ##             sub2 <- rep(c(0, 2), npts - offset) + rep(1:(npts -
-##                 offset), each=2)
+##                                                          offset), each=2)
 ##             rmsRows <- cbind(matrix(speed1[sub1], ncol=offset,
-##                 byrow=TRUE), matrix(speed2[sub2], ncol=offset,
-##                 byrow=TRUE))
+##                                     byrow=TRUE), matrix(speed2[sub2], ncol=offset,
+##                                       byrow=TRUE))
 ##             RMS <- c(rep(0, offset), sqrt(rowSums(rmsRows^2)/ncol(rmsRows)))
 ##             if (test & iter == 1) {
 ##                 res$speed <- c(res$speed, 0, speed1)
@@ -183,14 +187,11 @@ speedfilter <- function (x, max.speed=NULL, test=FALSE) {
 ##             segs[RMS <= max.speed] <- NA
 ##             peaks <- unlist(lapply(split.default(RMS, segs, drop=FALSE), which.max))
 ##             usegs <- unique(segs)[-1]
-## 		segsOK <- !is.na(segs)
-##            for (i in 1:length(usegs)) {
-##                RMS[segs == usegs[i] & segsOK][peaks[i]] <- -10
+##             segsOK <- !is.na(segs)
+##             for (i in 1:length(usegs)) {
+##                 RMS[segs == usegs[i] & segsOK][peaks[i]] <- -10
 ##             }
-
-
 ##             RMS[c(1, length(RMS))] <- c(0, 0)
-
 ##             ok[thisIndex][RMS < 0] <- FALSE
 ##         }
 ##         okFULL[ind] <- ok
@@ -198,4 +199,4 @@ speedfilter <- function (x, max.speed=NULL, test=FALSE) {
 ##     if (test)
 ##         return(res)
 ##     okFULL
-##     }
+## }
