@@ -1,0 +1,181 @@
+2013-03-19  Sebastian P. Luque <spluque@gmail.com>
+
+	* R/trip.split.R, R/trip2other.R, R/tripGrid.R:
+	  Minor global source formatting for improving readability,
+	  maintenance.
+
+	  Adding Id for svn:keywords property.
+
+	* R/filter.penSS.R, R/oc.theme.R, R/readDiag.R, R/speedfilter.R,
+	  R/trackDistance.R:
+	  Removing newlines inside object definitions.
+
+	* R/trackDistance.R:
+	  Fixed Id keyword (SVN).
+
+	* R/TimeOrderedRecords.R, R/filter.penSS.R, R/oc.colors.R,
+	  R/oc.theme.R, R/readDiag.R, R/speedfilter.R, R/trackDistance.R:
+	  Minor global source formatting for improving readability,
+	  maintenance.
+
+	  Adding Id for svn:keywords property.
+
+	* R/TimeOrderedRecords.R, R/filter.penSS.R, R/oc.colors.R,
+	  R/oc.theme.R, R/readDiag.R, R/speedfilter.R, R/trackDistance.R:
+	  Minor global source formatting for improving readability,
+	  maintenance.
+
+2013-03-08  Michael D. Sumner <mdsumner@gmail.com>
+
+	* DESCRIPTION, R/trip2other.R:
+	  Fixed new author mechanism.
+
+	* DESCRIPTION, NEWS, R/trip2other.R:
+	  fix for ltraj2trip from Sebastian
+
+2012-10-31  Michael D. Sumner <mdsumner@gmail.com>
+
+	* DESCRIPTION, NEWS, man/trip.split.exact.Rd:
+	  add dontrun to trip.split.exact example, was taking too long for
+	  CRAN policy
+
+2012-10-24  Michael D. Sumner <mdsumner@gmail.com>
+
+	* NEWS:
+	  NEWS update
+
+2012-10-09  Michael D. Sumner <mdsumner@gmail.com>
+
+	* NEWS, TODO:
+	  update news and todo
+
+	* NAMESPACE, namespaceTODO.txt:
+	  cleanup
+
+	* man/as.ltraj.Rd:
+	  stray require(adehabitat)
+
+	* NAMESPACE:
+	  spRbind from maptools
+
+	* R/filter.penSS.R:
+	  Put penalized in filter.penSS() to avoid scoping notes 'no
+	  visible binding for global variable ...'
+
+	* NAMESPACE, R/trip2other.R:
+	  small namespace fixes from maptools/spatstat
+
+	* man/trip-internal.Rd:
+	  temporarily internal functions
+
+	* man/as.ltraj.Rd, man/virtuals.Rd:
+	  documentation links to adehabitat changed to adehabitatLT
+
+	* R/trip.split.R, R/trip2other.R:
+	  Removed require calls to maptools, now done in NAMESPACE.
+
+	  Modified require() from old adehabitat to adehabitatLT
+
+	* DESCRIPTION:
+	  no more tests!
+
+	* DESCRIPTION:
+	  sdfasd
+
+	* DESCRIPTION:
+	  dsf
+
+	* DESCRIPTION:
+	  dasfads
+
+	* DESCRIPTION:
+	  ddd
+
+	* DESCRIPTION:
+	  ddd
+
+	* NEWS:
+	  test
+
+	* DESCRIPTION:
+	  dfas
+
+	* DESCRIPTION:
+	  test commit
+
+	* NAMESPACE.not:
+	  deleted
+
+2012-10-08  Michael D. Sumner <mdsumner@gmail.com>
+
+	* DESCRIPTION, NEWS, R/trip2other.R:
+	  updates, now working on R CMD check . . .
+
+	* DESCRIPTION, NAMESPACE, NEWS, R/trip2other.R:
+	  updates to namespace, now to check / build
+
+	* R/TimeOrderedRecords.R, R/filter.penSS.R, R/oc.colors.R,
+	  R/readDiag.R, R/speedfilter.R, R/trackDistance.R, R/trip.R,
+	  R/trip.split.R, R/tripFunctions.R, R/tripGrid.R:
+	  updates to functions
+
+	* namespaceTODO.txt:
+	  r-forge is working, some .R files to finish
+
+	* NAMESPACE.not:
+	  update to NAMESPACE.not, still working on r-forge authentication
+
+	* NEWS:
+	  dummy change for r-forgery
+
+2011-09-01  Michael D. Sumner <mdsumner@gmail.com>
+
+	* namespaceTODO.txt:
+	  adf
+
+	* NAMESPACE, NAMESPACE.not:
+	  turn off namespace
+
+	* DESCRIPTION, NAMESPACE, NEWS, R/filter.penSS.R, R/oc.colors.R,
+	  R/readDiag.R, R/speedfilter.R, R/trip.R, R/trip2other.R,
+	  R/tripFunctions.R, R/tripGrid.R, TODO,
+	  man/as.SpatialLinesDataFrame.Rd, man/as.ltraj.Rd, man/as.ppp.Rd,
+	  man/filter.penSS.Rd, man/spTransform-methods.Rd,
+	  man/trackDistance.Rd, man/trip-class.Rd, man/trip.Rd,
+	  man/tripTransform.Rd, man/virtuals.Rd, namespaceTODO.txt:
+	  Test commit
+
+2011-07-26  Michael D. Sumner <mdsumner@gmail.com>
+
+	* R/New Text Document.txt, R/oc.colors.R:
+	  revert junk edits
+
+	* R/New Text Document.txt, R/oc.colors.R:
+	  junk edits to test process
+
+2010-06-24  Michael D. Sumner <mdsumner@gmail.com>
+
+	* man/TimeOrderedRecords-class.Rd, man/TimeOrderedRecords.Rd,
+	  man/adjust.duplicateTimes.Rd, man/argos.sigma.Rd,
+	  man/forceCompliance.Rd, man/makeGridTopology.Rd, man/oc.theme.Rd,
+	  man/readArgos.Rd, man/readDiag.Rd, man/sepIdGaps.Rd,
+	  man/spTransform-methods.Rd, man/speedfilter.Rd,
+	  man/trackDistance.Rd, man/trip-class.Rd, man/trip-internal.Rd,
+	  man/trip.Rd, man/trip.split.exact.Rd, man/tripGrid.Rd,
+	  man/tripGrid.interp.Rd:
+	  man/ Rd files
+
+	* man:
+	  man/ folder
+
+	* R/TimeOrderedRecords.R, R/oc.colors.R, R/oc.theme.R,
+	  R/readDiag.R, R/trackDistance.R, R/trip.R, R/trip.split.R,
+	  R/tripFunctions.R, R/tripGrid.R:
+	  R/ files
+
+	* R:
+	  R/ folder
+
+	* ., DESCRIPTION, NEWS:
+	  bare bones trip package
+
