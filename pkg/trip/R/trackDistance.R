@@ -1,4 +1,4 @@
-#$ Id: $
+# $Id$
 
 ## taken from package sp/src/gcdist.c
 gcdist.c <- function(lon1, lat1, lon2, lat2) {
