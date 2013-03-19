@@ -14,12 +14,6 @@
 ## bound.dates <- seq(min(tr$tms)-1, max(tr$tms)+1, length=5)
 ## trip.list <- trip.split.exact(tr, bound.dates)
 
-## DONE recombine all trips with rbind for each time window
-##DONE work with minimal validated dataframe (x, y, t, id)
-##DONE implement fix for short trips with few points
-##DONE implement split for a single-id trip
-##DONE  implement check that boundary dates encompass the trip range
-
 tripRbind <- function (obj, x) {
     ## not needed, and not possible since classes imported using
     ## NAMESPACE MDS 2012-10-09

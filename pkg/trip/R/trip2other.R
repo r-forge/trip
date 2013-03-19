@@ -4,31 +4,6 @@
 if(!isClass("ltraj"))
     setClass("ltraj")
 
-## not needed, now imported by NAMESPACE from maptools
-## help by S. Luque, 2012-10-09
-##if (!isClass("ppp"))
-##	setClass("ppp")
-
-##if (!isClass("psp"))
-##	setClass("psp")
-
-##if (!isClass("owin"))
-##	setClass("owin")
-
-## if(!isGeneric("as.ltraj"))
-##     setGeneric("as.ltraj")
-## if (!isGeneric("as.ltraj"))
-##     setGeneric("as.ltraj",
-##                function(xy, date, id, burst=id, typeII=TRUE,
-##                         slsp=c("remove", "missing"))
-##                standardGeneric("as.ltraj"))
-
-## if (!isClass("im"))
-##     setClass("im")
-
-## if (!isClass("tess"))
-##     setClass("tess")
-
 ltraj2trip <- function (ltr)
 {
     require(adehabitatLT)
@@ -59,23 +34,6 @@ as.ltraj.trip <- function(xy, typeII=TRUE, slsp="remove") {
 
 setAs("trip", "ltraj", function(from) as.ltraj.trip(from))
 setAs("ltraj", "trip", function(from) ltraj2trip(from))
-
-## setMethod("as.ltraj",
-##           signature(xy="trip", date="missing", id="missing",
-##                     burst="missing", typeII="logical",
-##                     slsp="character"), as.ltraj.trip)
-## setMethod("as.ltraj",
-##           signature(xy="trip", date="missing", id="missing",
-##                     burst="missing", typeII="logical",
-##                     slsp="missing"), as.ltraj.trip)
-## setMethod("as.ltraj",
-##           signature(xy="trip", date="missing", id="missing",
-##                     burst="missing", typeII="missing",
-##                     slsp="character"), as.ltraj.trip)
-## setMethod("as.ltraj",
-##           signature(xy="trip", date="missing", id="missing",
-##                     burst="missing", typeII="missing",
-##                     slsp="missing"), as.ltraj.trip)
 
 ## cases
 

@@ -101,15 +101,7 @@ tripGrid.interp <- function(x, grid=NULL, method="count", dur=NULL, ...) {
         res$z <- res$z + do.call(method,
                                  list(x=trip(this, tor), grid=grid, ...))$z
     }
-    ## origTotal <- sum(tapply(x[[x@TOR.columns[1]]], x[[x@TOR.columns[2]]], function(x) diff(range(as.numeric(x)))))
-    ## newTotal <- sum(res$z) * 3600
-    ## uType <- "hours"
-    ## hTotal <- sum(tapply(x[[x@TOR.columns[1]]], x[[x@TOR.columns[2]]], function(x) difftime(range(x)[2],
-    ## 	        range(x)[1], units=uType)))
-    ## cat("lost seconds=", as.integer(origTotal - newTotal),
-    ## 	       " out of a total ", hTotal, " ", uType, "\n")
     if (method == "countPoints") res$z <- res$z * dur
-    ## if (hours) res$z <- res$z / 3600
     res
 }
 
@@ -124,11 +116,6 @@ kdePoints <- function (x, h=NULL, grid=NULL, resetTime=TRUE, ...) {
     }))
     ## must acknowledge MASS for this
     if (missing(h)) {
-        ##  bandwidth.nrd <- function(x) {
-        ##     r <- quantile(x, c(0.25, 0.75))
-        ##     h <- (r[2] - r[1])/1.34
-        ##     4 * 1.06 * min(sqrt(var(x)), h) * length(x)^(-1/5)
-        ## }
         h <- c(bandwidth.nrd(xx), bandwidth.nrd(yy))/10
     }
     if (is.null(grid))  grid <- makeGridTopology(coords, ...)
@@ -152,8 +139,6 @@ countPoints <- function (x, dur=1, grid=NULL)
     xx <- coords[, 1]
     yy <- coords[, 2]
     if (is.null(grid))  grid <- makeGridTopology(coords)
-    ## grd <- mkGrid(x, y, ...)
-    ## orig <- c(grd$x[1], grd$y[1])
     orig <- grid@cellcentre.offset - grid@cellsize / 2
     ## scl <- c(diff(grd$x)[1], diff(grd$y)[1])
     scl <- grid@cellsize
@@ -236,88 +221,6 @@ makeGridTopology <- function (obj, cells.dim=c(100, 100),
         cellsize=cellsize, cells.dim=as.integer(cells.dim))
 }
 
-
-## gridFromCellsize <- function(cell.size=c(1, 1)) {
-##     GridTopology(c(180, -90) + cell.size/2, cell.size
-## }
-## gridFromDims <- function(cells.dim=c(360, 180)) {
-##    GridTopology(c(0.5, -89.5), c(1, 1), cells.dim))
-## }
-## gridFromNothing <- function() {
-##     GridTopology(c(0.5, -89.5), c(1, 1), c(360, 180))
-## }
-## ## mk.lims <- function(xlim, ylim) {
-## ## }
-
-
-
-## default 100x100
-                                        #gt <- mkGT(tr)
-
-## obj and xlim
-                                        #gt <- mkGT(tr, xlim=c(100, 200))
-
-## obj and ylim
-                                        #gt <- mkGT(tr, ylim=c(-80, 20))
-
-## obj and xlim and ylim
-                                        #gt <- mkGT(tr, xlim=c(100, 200), ylim=c(-80, 20))
-
-## xlim and ylim
-                                        #gt <- mkGT(xlim=c(100, 200), ylim=c(-80, 20))
-
-## object and cellsize
-                                        #gt <- mkGT(tr, cellsize=c(50, 50))
-
-## xlim and ylim and cellsize
-                                        #gt <- mkGT(xlim=c(100, 200), ylim=c(-80, 20), cellsize=c(50, 50))
-
-
-
-                                        #trg <- tripGrid(tr, dur=36000, grid=gt)
-
-
-
-
-
-                                        #trackDistance <-
-                                        #function (track, longlat=FALSE)
-                                        #{
-                                        #    if (!is.matrix(track))
-                                        #        stop("track must be two-column matrix")
-                                        #    if (ncol(track) != 2)
-                                        #        stop("track must be two-column matrix")
-                                        #    n1 <- nrow(track) - 1
-                                        #    if (n1 < 2)
-                                        #        stop("less than two points")
-                                        #    res <- numeric(n1)
-                                        #    for (i in seq(along=res))
-                                        #      res[i] <- spDistsN1(track[i,,drop=FALSE],
-                                        #                          track[(i + 1),,drop=FALSE ], longlat=longlat)
-                                        #    res
-                                        #}
-
-
-## trackDistance <-
-## function (track, longlat=FALSE, push=1)
-## {
-
-## 	#print(longlat)
-## 	#track <- coordinates(spData)
-##     if (!is.matrix(track))
-##         stop("track must be two-column matrix")
-##     if (ncol(track) != 2)
-##         stop("track must be two-column matrix")
-##     n1 <- nrow(track) - 1
-##     if (n1 < 1)
-##         stop("less than two points")
-##     res <- numeric(n1 - push + 1)
-##     for (i in seq(along=res))
-##       res[i] <- spDistsN1(track[i,,drop=FALSE],
-##                           track[(i + push),,drop=FALSE ], longlat=longlat)
-##     res
-## }
-
 adjust.duplicateTimes <- function (time, id) {
     dups <- unlist(tapply(time, id, duplicated), use.names=FALSE)
     if (any(dups)) {
@@ -326,7 +229,6 @@ adjust.duplicateTimes <- function (time, id) {
     }
     time
 }
-
 
 argos.sigma <- function(x, sigma=c(100, 80, 50, 20, 10, 4,  2),
                         adjust=111.12) {
