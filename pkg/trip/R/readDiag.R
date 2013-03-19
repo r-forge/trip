@@ -1,4 +1,4 @@
-# $Id: $
+# $Id$
 
 readDiag <- function (x) {
     data <- NULL

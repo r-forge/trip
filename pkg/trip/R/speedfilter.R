@@ -1,4 +1,4 @@
-# $Id: $
+# $Id$
 
 speedfilter <- function (x, max.speed=NULL, test=FALSE) {
     if (!is(x, "trip"))

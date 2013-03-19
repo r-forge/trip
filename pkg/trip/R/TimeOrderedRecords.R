@@ -1,4 +1,4 @@
-## $Id: $
+## $Id$
 
 setClass("TimeOrderedRecords", representation(TOR.columns="character"))
 

@@ -1,4 +1,4 @@
-# $Id: $
+# $Id$
 
 filter.penSS <- function(tr, lambda, first=TRUE, last=TRUE,...) {
 
