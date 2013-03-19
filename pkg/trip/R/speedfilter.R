@@ -64,7 +64,6 @@ speedfilter <- function (x, max.speed=NULL, test=FALSE) {
                                         ((unclass(tms[ok][-c(1, 2)]) -
                                           unclass(tms[ok][-c(n - 1, n)])) /
                                          3600)
-
             thisIndex <- index[ok]
             npts <- length(speed1)
             if (npts < pprm)
@@ -72,7 +71,6 @@ speedfilter <- function (x, max.speed=NULL, test=FALSE) {
             sub1 <- rep(1:2, npts - offset) + rep(1:(npts - offset), each=2)
             sub2 <- rep(c(0, 2), npts - offset) +
                 rep(1:(npts - offset), each=2)
-
             rmsRows <- cbind(matrix(speed1[sub1], ncol=offset, byrow=TRUE),
                              matrix(speed2[sub2], ncol=offset, byrow=TRUE))
             RMS <- c(rep(0, offset),
@@ -82,7 +80,6 @@ speedfilter <- function (x, max.speed=NULL, test=FALSE) {
                 res$rms <- c(res$rms, 0, RMS)
                 break
             }
-
             RMS[length(RMS)] <- 0
             bad <- RMS > max.speed
             segs <- cumsum(c(0, abs(diff(bad))))
@@ -91,7 +88,6 @@ speedfilter <- function (x, max.speed=NULL, test=FALSE) {
                 ifelse((1:length(x)) == which.max(x), TRUE, FALSE)
             }), use.names=FALSE)
             rmsFlag[!bad] <- FALSE
-
             RMS[rmsFlag] <- -10
             ok[thisIndex][rmsFlag > 0] <- FALSE
         }

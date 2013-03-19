@@ -15,7 +15,6 @@ readDiag <- function (x) {
             locs <- locs[-bad]
             tms <- tms[-(bad)]
         }
-
         dlines <- paste(locs, tms)
         dlines <- strsplit(dlines, "\\s+", perl=TRUE)
         reclen <- length(dlines[[1]])
