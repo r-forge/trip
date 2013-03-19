@@ -1,5 +1,15 @@
 2013-03-19  Sebastian P. Luque <spluque@gmail.com>
 
+	* R/trip.R, R/tripFunctions.R:
+	  Minor global source formatting for improving readability,
+	  maintenance.
+
+	  Adding Id for svn:keywords property.
+
+	* R/speedfilter.R:
+	  Formatting of commented function (unnecessary, but helps keep
+	  sanity).
+
 	* R/trip.split.R, R/trip2other.R, R/tripGrid.R:
 	  Minor global source formatting for improving readability,
 	  maintenance.
