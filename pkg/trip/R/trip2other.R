@@ -1,9 +1,5 @@
 # $Id$
 
-# trip definitions so spatstat does not need to be available
-if(!isClass("ltraj"))
-    setClass("ltraj")
-
 ltraj2trip <- function (ltr)
 {
     require(adehabitatLT)
