@@ -11,8 +11,13 @@ Version: 1.1-13
 Depends: methods, sp (>= 0.9-64), spatstat (>= 1.18-4)
 Imports: maptools
 Suggests: rgdal, adehabitatLT, lattice
-Author: Michael Sumner[aut, cre], Sebastian Luque [ctb], Andrew Irwin [ctb], Francois Rousseau [ctb]
+Author: Michael Sumner[aut, cre], Sebastian Luque [ctb], 
+	Andrew Irwin [ctb], Francois Rousseau [ctb]
 Maintainer: Michael D. Sumner <mdsumner@gmail.com>
-Description: Functions for accessing and manipulating spatial data for animal tracking.
-   Filter for speed and create time spent plots from animal track data.
+Description: Functions for accessing and manipulating spatial data for
+	     animal tracking.  Filter for speed and create time spent plots
+	     from animal track data.
+Collate: AllClass.R AllGenerics.R AllMethod.R TimeOrderedRecords.R trip.R 
+	 trip.split.R trip2other.R tripGrid.R trackDistance.R filter.penSS.R
+	 oc.theme.R readDiag.R speedfilter.R
 License: GPL (>=2)
