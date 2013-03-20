@@ -23,24 +23,10 @@ trip <- function(obj, TORnames) {
     new("trip", obj, TimeOrderedRecords(TORnames))
 }
 
-## S3 versions
-dim.trip <- function(x) dim(as(x, "SpatialPointsDataFrame"))
-as.data.frame.trip <- function(x, ...) {
-    as.data.frame(as(x, "SpatialPointsDataFrame"), ...)
-}
-
-names.trip <- function(x) names(as(x, "SpatialPointsDataFrame"))
-
-"names<-.trip" <- function(x, value) {
-    names(x@data) <- value
-    x@TOR.columns <- value
-    x
-}
-
 
 ###_ + Functions
 
-## need to clean up the "internal" functions, and ensure the arguments
+## Need to clean up the "internal" functions, and ensure the arguments
 ## are passed in correctly - and figure out which arguments are really
 ## useful anyway
 

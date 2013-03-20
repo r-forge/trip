@@ -28,6 +28,22 @@ setReplaceMethod("[[", c("trip", "ANY", "missing", "ANY"),
                      trip(x, tor)
                  })
 
+## S3 versions
+dim.trip <- function(x) dim(as(x, "SpatialPointsDataFrame"))
+
+as.data.frame.trip <- function(x, ...) {
+    as.data.frame(as(x, "SpatialPointsDataFrame"), ...)
+}
+
+names.trip <- function(x) names(as(x, "SpatialPointsDataFrame"))
+
+"names<-.trip" <- function(x, value) {
+    names(x@data) <- value
+    x@TOR.columns <- value
+    x
+}
+
+
 ###_ + sp methods
 
 setMethod("points", "trip",
