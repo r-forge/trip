@@ -1,4 +1,4 @@
-# $Id: $
+# $Id$
 
 if (!isGeneric("trip"))
     setGeneric("trip",
