@@ -32,7 +32,7 @@ filter.penSS <- function(tr, lambda, first=TRUE, last=TRUE,...) {
     ##dt <- diff(unclass(tr$Time)/(24*60*60))
     dt <- diff(unclass(tr[[getTORnames(tr)[1]]]) / (24 * 60 * 60))
     mn <- nlm(penalized, as.matrix(p.obs[sub, ]), ...)
-    m <- n-(first + last)
+    m <- n - (first + last)
     res <- coordinates(tr)
     ##  tr$Lat[sub] <- mn$estimate[1:m]
     ##  tr$Lon[sub] <- mn$estimate[m+1:m]

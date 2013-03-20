@@ -2,8 +2,6 @@
 
 ## taken from package sp/src/gcdist.c
 gcdist.c <- function(lon1, lat1, lon2, lat2) {
-    ##   lon1 <- x[-nrow(x), 1];lat1 <- x[-nrow(x), 2]
-    ##   lon2 <- x[-1, 1];lat2 <- x[-1, 2]
     DE2RA <- pi / 180
     a <- 6378.137            # /* WGS-84 equatorial radius in km */
     f <- 1.0 / 298.257223563 # /* WGS-84 ellipsoid flattening factor */
