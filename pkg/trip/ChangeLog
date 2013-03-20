@@ -1,4 +1,56 @@
+2013-03-20  Sebastian P. Luque <spluque@gmail.com>
+
+	* DESCRIPTION, NAMESPACE:
+	  Add Collate: field for better control of loading order.
+
+	  Perhaps code in TimeOrderedRecords.R should be moved to
+	  AllMethod.R...
+
+	* R/AllMethod.R, R/trip.R:
+	  Move trip() to AllMethod.R for loading sequence logic.
+
+	* R/AllClass.R, man/trip-internal.Rd:
+	  Rename to validTORdata for consistency.
+
+	* R/TimeOrderedRecords.R, R/filter.penSS.R, R/oc.theme.R,
+	  R/readDiag.R, R/speedfilter.R, R/trackDistance.R, R/trip.split.R,
+	  R/trip2other.R, R/tripGrid.R:
+	  Adding local Emacs variables.
+
+	* R/AllMethod.R, R/trip.R:
+	  Move S3 methods to AllMethod.R
+
+	* R/AllClass.R, R/AllGenerics.R, R/AllMethod.R:
+	  Adding Id keyword property.
+
+	* NAMESPACE:
+	  Removing commented code.
+
+	* R/tripFunctions.R:
+	  Removed.
+
+	* R/filter.penSS.R, R/speedfilter.R, R/trackDistance.R:
+	  Removing unnecessary commented code.
+
+	* R/AllClass.R, R/AllGenerics.R, R/AllMethod.R,
+	  R/TimeOrderedRecords.R, R/trip.R, R/trip2other.R:
+	  Moving class definitions and validity checks to AllClass.R,
+	  methods to AllMethod.R, and generics to AllGenerics.R.
+
+	  Restore validtordata() as validity check for trip. It was
+	  accidentally commented and removed in r57 and r59, respectively.
+
+	* R/tripFunctions.R:
+	  Moving all this code to trip.R
+
 2013-03-19  Sebastian P. Luque <spluque@gmail.com>
+
+	* R/oc.colors.R, R/oc.theme.R:
+	  Consolidating; there was a duplicate oc.theme().
+
+	* R/speedfilter.R, R/trip.R, R/trip.split.R, R/trip2other.R,
+	  R/tripFunctions.R, R/tripGrid.R:
+	  Removing old commented code.
 
 	* R/trip.R, R/tripFunctions.R:
 	  Minor global source formatting for improving readability,
@@ -186,6 +238,6 @@
 	* R:
 	  R/ folder
 
-	* ., DESCRIPTION, NEWS:
+	* DESCRIPTION, NEWS:
 	  bare bones trip package
 
