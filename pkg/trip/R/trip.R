@@ -1,26 +1,12 @@
 # $Id$
 
 tripTransform <- function(x, crs, ...) {
-    if(! inherits(crs, "CRS")) crs <- CRS(crs)
-    if (!require(rgdal)) {
-        msg <- paste("package rgdal is not available,",
-                     "please install it for reprojection with spTransform")
-        stop(msg)
-    }
+    require(rgdal) || stop("rgdal package is not available")
+    if (! inherits(crs, "CRS")) crs <- CRS(crs)
     tor <- getTORnames(x)
     xSP <- as(x, "SpatialPointsDataFrame")
     xSP <- spTransform(xSP, crs, ...)
     trip(xSP, tor)
-}
-
-trip <- function(obj, TORnames) {
-    ## only spdf for now
-    if ( !is(obj, "SpatialPointsDataFrame") ) {
-        stop("trip only supports SpatialPointsDataFrame") #ANY?
-    }
-    if (is.factor(obj[[TORnames[2]]]))
-        obj[[TORnames[2]]] <- factor(obj[[TORnames[2]]])
-    new("trip", obj, TimeOrderedRecords(TORnames))
 }
 
 
