@@ -56,3 +56,10 @@ oc.col <- c("#FFFFFF", "#A00AFF", "#A013FF", "#A01DFF", "#A027FF",
             "#AA0000")
 
 oc.colors <- grDevices::colorRampPalette(oc.col)
+
+
+
+###_ + Emacs local variables
+## Local variables:
+## allout-layout: (+ : 0)
+## End:

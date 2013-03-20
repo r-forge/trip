@@ -48,3 +48,10 @@ readDiag <- function (x) {
     }
     data
 }
+
+
+
+###_ + Emacs local variables
+## Local variables:
+## allout-layout: (+ : 0)
+## End:

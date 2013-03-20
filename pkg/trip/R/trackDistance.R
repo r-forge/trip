@@ -51,3 +51,10 @@ trackDistance <- function(x1, y1, x2, y2, longlat=TRUE) {
         gcdist.c(x1, y1, x2, y2)
     } else sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2)
 }
+
+
+
+###_ + Emacs local variables
+## Local variables:
+## allout-layout: (+ : 0)
+## End:

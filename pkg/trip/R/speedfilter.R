@@ -95,3 +95,10 @@ speedfilter <- function (x, max.speed=NULL, test=FALSE) {
         return(res)
     okFULL
 }
+
+
+
+###_ + Emacs local variables
+## Local variables:
+## allout-layout: (+ : 0)
+## End:

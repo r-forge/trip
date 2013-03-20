@@ -142,3 +142,10 @@ trip.split.exact <- function(x, dates) {
     }
     nlist
 }
+
+
+
+###_ + Emacs local variables
+## Local variables:
+## allout-layout: (+ : 0)
+## End:

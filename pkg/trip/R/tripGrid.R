@@ -102,3 +102,10 @@ tripGrid <- function (x, grid=NULL, method="pixellate", ...)
     }
     image2Grid(res, p4=proj4string(x))
 }
+
+
+
+###_ + Emacs local variables
+## Local variables:
+## allout-layout: (+ : 0)
+## End:

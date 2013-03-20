@@ -96,3 +96,10 @@ as.trip.SpatialLinesDataFrame <- function(from) {
 }
 
 setAs("trip", "SpatialLinesDataFrame", as.trip.SpatialLinesDataFrame)
+
+
+
+###_ + Emacs local variables
+## Local variables:
+## allout-layout: (+ : 0)
+## End:

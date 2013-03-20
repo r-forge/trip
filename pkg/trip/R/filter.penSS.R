@@ -42,3 +42,10 @@ filter.penSS <- function(tr, lambda, first=TRUE, last=TRUE,...) {
                                   proj4string=CRS(proj4string(tr)))
     trip(res, getTORnames(tr))
 }
+
+
+
+###_ + Emacs local variables
+## Local variables:
+## allout-layout: (+ : 0)
+## End:
