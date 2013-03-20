@@ -1,6 +1,6 @@
 \name{trip-internal}
 \alias{trip-internal}
-\alias{validtordata}
+\alias{validTORdata}
 \alias{trip.default}
 \alias{dim.trip}
 \alias{[[.trip}
