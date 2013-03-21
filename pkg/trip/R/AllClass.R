@@ -16,7 +16,7 @@ setValidity("TimeOrderedRecords", function(object) {
 setClass("trip",
          contains=c("TimeOrderedRecords", "SpatialPointsDataFrame"))
 
-validTORdata <- function(object) {
+.validTORdata <- function(object) {
     if (!is(object@data, "data.frame"))
         stop("only data frames supported for data slots")
     tid <- as.data.frame(object@data[, object@TOR.columns])
@@ -58,6 +58,6 @@ validTORdata <- function(object) {
     return(TRUE)
 }
 
-setValidity("trip", validTORdata)
+setValidity("trip", trip:::.validTORdata)
 
 if (!isClass("ltraj")) setClass("ltraj")
