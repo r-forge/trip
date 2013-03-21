@@ -7,7 +7,7 @@
 \alias{[[<-.trip}
 \alias{$.trip}
 \alias{$<-.trip}
-\alias{print.summary.tordata}
+\alias{print.summary.TORdata}
 \alias{print.trip}
 \alias{.oc.col}
 \alias{.single.trip.split}

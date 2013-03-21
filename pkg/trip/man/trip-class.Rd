@@ -13,7 +13,7 @@
 \alias{points,trip-method}
 \alias{recenter,trip-method}
 \alias{show,trip-method}
-\alias{show,summary.tordata-method}
+\alias{show,summary.TORdata-method}
 %\alias{spTransform,trip,CRS-method}
 \alias{summary,trip-method}
 \alias{text,trip-method}

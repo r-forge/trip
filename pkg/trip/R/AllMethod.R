@@ -177,12 +177,12 @@ setMethod("summary", "trip",
               obj[["tripDurationSeconds"]] <- tapply(time, ids, function(x) {
                   x <- diff(range(unclass(x)))
               })
-              class(obj) <- "summary.tordata"
+              class(obj) <- "summary.TORdata"
               ## invisible(obj)
               obj
           })
 
-print.summary.tordata <- function(x, ...) {
+print.summary.TORdata <- function(x, ...) {
     dsumm <- data.frame(tripID=x$tripID,
                         No.Records=x$nRecords,
                         startTime=x$tmins,
@@ -211,8 +211,8 @@ print.summary.tordata <- function(x, ...) {
     cat("\n")
 }
 
-setMethod("show", "summary.tordata",
-          function(object) print.summary.tordata(object))
+setMethod("show", "summary.TORdata",
+          function(object) print.summary.TORdata(object))
 
 print.trip <- function(x, ...) {
     xs <- summary(x)

@@ -60,4 +60,7 @@ setClass("trip",
 
 setValidity("trip", trip:::.validTORdata)
 
+## We don't need an S4 class for this, but we do want S4 methods
+setOldClass("summary.TORdata")
+
 if (!isClass("ltraj")) setClass("ltraj")
