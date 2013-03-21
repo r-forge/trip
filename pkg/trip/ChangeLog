@@ -1,5 +1,12 @@
 2013-03-21  Sebastian P. Luque <spluque@gmail.com>
 
+	* NAMESPACE:
+	  Restrict the classes that are exported.
+
+	* R/AllClass.R, R/AllMethod.R, man/trip-class.Rd,
+	  man/trip-internal.Rd:
+	  Use summary.TORdata for consistency.
+
 	* ChangeLog, man/trip-class.Rd:
 	  Add \alias for 'summary.tordata' show() method.
 
