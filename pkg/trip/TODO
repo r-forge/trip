@@ -22,9 +22,7 @@ What about this?
 
 * TimeOrderedRecords approach
 
-MDS:
-
-I think TimeOrderedRecords is a bit of overkill, it was originally
+[MDS]: I think TimeOrderedRecords is a bit of overkill, it was originally
 suggested by Roger but I think it's really an overuse of S4
 formalism. Sometimes I think it would be best to keep the data.frame in the
 original order, but build indexes for the records sorted by time/id, just
@@ -40,8 +38,8 @@ perhaps things need fixing.
 
 * Helper functions
 
-trip also needs helper functions to calculate distance and speed within
-individual trips, it should provide total distance and average speed
+[MDS]: trip also needs helper functions to calculate distance and speed
+within individual trips, it should provide total distance and average speed
 summary() too (with appropriate overrides for various kinds of distance
 calcualtion).
 

@@ -1,28 +1,23 @@
 \name{trip-internal}
 \alias{trip-internal}
-\alias{validTORdata}
+\alias{.validTORdata}
 \alias{trip.default}
 \alias{dim.trip}
 \alias{[[.trip}
 \alias{[[<-.trip}
 \alias{$.trip}
 \alias{$<-.trip}
-%\alias{split.data.frame}
-\alias{subset.trip}
-\alias{summary.tordata}
 \alias{print.summary.tordata}
 \alias{print.trip}
-\alias{recenter.trip}
-\alias{oc.col}
-\alias{single.trip.split}
+\alias{.oc.col}
+\alias{.single.trip.split}
 
 %% temporarily added to pass CHECK, before real hard NAMESPACE work
 %% 2012-10-09
-\alias{g2ow}
-\alias{gcdist.c}
-\alias{intpFun}
-\alias{penalized}
-\alias{tripRbind}
+\alias{.g2ow}
+\alias{.gcdist.c}
+\alias{.intpFun}
+\alias{.tripRbind}
 
 
 %\alias{spTransform,trip-method}
