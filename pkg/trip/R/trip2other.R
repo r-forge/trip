@@ -24,8 +24,8 @@ as.ltraj.trip <- function(xy, typeII=TRUE, slsp="remove") {
     require(adehabitatLT)
     tor <- getTORnames(xy)
     crds <- coordinates(xy)
-    as.ltraj(as.data.frame(crds), date=xy[[tor[1]]],
-             id=xy[[tor[2]]], typeII=typeII, slsp=slsp)
+    adehabitatLT::as.ltraj(as.data.frame(crds), date=xy[[tor[1]]],
+                           id=xy[[tor[2]]], typeII=typeII, slsp=slsp)
 }
 
 setAs("trip", "ltraj", function(from) as.ltraj.trip(from))
@@ -57,7 +57,7 @@ setAs("trip", "ppp", function(from) as.ppp.trip(from))
 as.psp.trip <- function(x, ..., from, to) {
     require(spatstat)
     split.X <- split(x, x[[getTORnames(x)[2]]])
-    ow <- owin(bbox(x)[1,], bbox(x)[2,])
+    ow <- spatstat::owin(bbox(x)[1,], bbox(x)[2,])
     as.psp.trip1 <- function(this, ow=NULL) {
         if (is.null(ow)) ow <- owin(bbox(this)[1,], bbox(this)[2,])
         tor <- getTORnames(this)
