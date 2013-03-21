@@ -1,3 +1,34 @@
+2013-03-21  Sebastian P. Luque <spluque@gmail.com>
+
+	* TODO, man/trip-internal.Rd:
+	  Update documentation for internals.
+
+	* R/trip2other.R:
+	  Use fully qualified reference to adehabitatLT and spatstat
+	  functions.
+
+	* R/AllMethod.R:
+	  Remove subset.trip() function; just make it the definition for
+	  the trip method.
+
+	  Remove summary.tordata() function; just make it the definition
+	  for the trip method.
+
+	  Remove recenter.trip() function; just make it the definition for
+	  the trip method.
+
+	  Show methods for 'summary.tordata' and 'trip'.
+
+	* R/AllClass.R:
+	  Do not export validTORdata(), as it is internal.
+
+	* NAMESPACE, R/oc.theme.R, R/trackDistance.R, R/trip.R,
+	  R/trip.split.R, R/tripGrid.R:
+	  Do not export internal objects. Prefix them with a dot, and use
+	  exportPattern() and exportMethods() in NAMESPACE.
+
+	  Declare S3 methods.
+
 2013-03-20  Sebastian P. Luque <spluque@gmail.com>
 
 	* DESCRIPTION, NAMESPACE:
