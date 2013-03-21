@@ -1,5 +1,8 @@
 2013-03-21  Sebastian P. Luque <spluque@gmail.com>
 
+	* ChangeLog, man/trip-class.Rd:
+	  Add \alias for 'summary.tordata' show() method.
+
 	* TODO, man/trip-internal.Rd:
 	  Update documentation for internals.
 
