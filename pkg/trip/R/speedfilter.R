@@ -14,8 +14,8 @@ speedfilter <- function (x, max.speed=NULL, test=FALSE) {
     }
     longlat <- !projected
     coords <- coordinates(x)
-    time=x[[x@TOR.columns[1]]]
-    id=factor(x[[x@TOR.columns[2]]])
+    time <- x[[x@TOR.columns[1]]]
+    id <- factor(x[[x@TOR.columns[2]]])
     x <- coords[, 1]
     y <- coords[, 2]
     pprm <- 3
