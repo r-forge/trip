@@ -20,6 +20,11 @@ importFrom(maptools, spRbind)
 ## Export all names not starting with a dot
 exportPattern("^[^\\.]")
 
+exportClassPattern("^$")               # to over-ride classes implied above
+
+exportClasses("TimeOrderedRecords",
+              "trip")
+
 exportMethods("trip",
               "points",
               "text",
@@ -32,7 +37,7 @@ exportMethods("trip",
               "recenter")
 
 S3method("print", "trip")
-S3method("print", "summary.tordata")
+S3method("print", "summary.TORdata")
 S3method("dim", "trip")
 S3method("names", "trip")
 S3method("names<-", "trip")
