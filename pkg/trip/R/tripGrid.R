@@ -8,7 +8,7 @@
 
 ## replaces tripGrid, old version is now called tripGrid.interp
 
-g2ow <- function(x) {
+.g2ow <- function(x) {
     mn <- x@cellcentre.offset - x@cellsize / 2
     mx <- mn + x@cells.dim * x@cellsize
     owin(c(mn[1], mx[1]), c(mn[2], mx[2]),
@@ -39,7 +39,7 @@ tripGrid <- function (x, grid=NULL, method="pixellate", ...)
     res <- as.image.SpatialGridDataFrame(spgdf)
     tor <- x@TOR.columns
     trip.list <- split.data.frame(x[, tor], x[[tor[2]]])
-    ow <- g2ow(grid)
+    ow <- trip:::.g2ow(grid)
     sm <- 0
     zero.lengths <- FALSE
     sz <- 0
@@ -48,19 +48,19 @@ tripGrid <- function (x, grid=NULL, method="pixellate", ...)
         ys <- coordinates(this)[, 2]
         dt <- diff(unclass(this[[tor[1]]]))
         sm <- sm + sum(dt)
-        x.psp <- psp(xs[-length(xs)], ys[-length(ys)], xs[-1],
-                     ys[-1], window=ow)
-        lngths <- lengths.psp(x.psp)
+        x.psp <- spatstat::psp(xs[-length(xs)], ys[-length(ys)], xs[-1],
+                               ys[-1], window=ow)
+        lngths <- spatstat::lengths.psp(x.psp)
         if (any(!lngths > 0)) {
             ## trim psp objects (0-lines give NaNs)
             zero.lengths <- TRUE
             zeros <- which(!lngths > 0)
             cc <- coordinates(this)[zeros, , drop=FALSE]
             op <- options(warn=-1)
-            x.ppp <- ppp(cc[, 1], cc[, 2], window=ow)
+            x.ppp <- spatstat::ppp(cc[, 1], cc[, 2], window=ow)
             options(op)
             if (method == "pixellate") {
-                v <- pixellate(x.ppp, W=ow, weights=dt[zeros])$v
+                v <- spatstat::pixellate(x.ppp, W=ow, weights=dt[zeros])$v
             }
             if (method == "density") {
                 v <- density(x.ppp, ...)$v
@@ -72,7 +72,7 @@ tripGrid <- function (x, grid=NULL, method="pixellate", ...)
         weights <- dt/ifelse(lngths > 0, lngths, .Machine$double.eps)
         weights <- weights[lngths > 0]
         if (method == "pixellate") {
-            v <- pixellate(x.psp, W=ow, weights=weights)$v
+            v <- spatstat::pixellate(x.psp, W=ow, weights=weights)$v
         }
         if (method == "density") {
             ## v <- density(x.psp, ...)$v

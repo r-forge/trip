@@ -1,11 +1,11 @@
 # $Id$
 
 tripTransform <- function(x, crs, ...) {
-    require(rgdal) || stop("rgdal package is not available")
+    require(rgdal) || stop("rgdal package is required, but unavailable")
     if (! inherits(crs, "CRS")) crs <- CRS(crs)
     tor <- getTORnames(x)
     xSP <- as(x, "SpatialPointsDataFrame")
-    xSP <- spTransform(xSP, crs, ...)
+    xSP <- rgdal::spTransform(xSP, crs, ...)
     trip(xSP, tor)
 }
 
@@ -35,7 +35,7 @@ forceCompliance <- function(x, tor) {
     x
 }
 
-intpFun <- function(x) {
+.intpFun <- function(x) {
     len <- round(x[3] + 1)
     new <- seq(x[1], x[2], length=len)
     if (len > 1)
@@ -72,9 +72,9 @@ interpequal <- function(x, dur=NULL, quiet=FALSE) {
         intime <- as.numeric(tms) - min(as.numeric(tms))
         at <- cbind(intime, c(intime[-1], intime[length(intime)]),
 	            c(dtn, 0))
-        nx <- unlist(apply(ax, 1, intpFun))
-        ny <- unlist(apply(ay, 1, intpFun))
-        nt <- unlist(apply(at, 1, intpFun)) + min(tms)
+        nx <- unlist(apply(ax, 1, trip:::.intpFun))
+        ny <- unlist(apply(ay, 1, trip:::.intpFun))
+        nt <- unlist(apply(at, 1, trip:::.intpFun)) + min(tms)
         ni <- factor(rep(sub, length=length(nt)))
         newPts <- rbind(newPts,
                         data.frame(x=nx, y=ny, time=nt, id=ni))

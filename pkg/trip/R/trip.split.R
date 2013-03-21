@@ -14,7 +14,7 @@
 ## bound.dates <- seq(min(tr$tms)-1, max(tr$tms)+1, length=5)
 ## trip.list <- trip.split.exact(tr, bound.dates)
 
-tripRbind <- function (obj, x) {
+.tripRbind <- function (obj, x) {
     ## not needed, and not possible since classes imported using
     ## NAMESPACE MDS 2012-10-09
     ## suppressMessages(require(maptools))
@@ -28,7 +28,7 @@ tripRbind <- function (obj, x) {
     trip(x, tor1)
 }
 
-single.trip.split <- function(tr1, boundary.dates) {
+.single.trip.split <- function(tr1, boundary.dates) {
     diff.d <- diff(unclass(boundary.dates))
     if (any(diff.d < 0))
         stop("boundary dates must must sort increasingly")
@@ -112,7 +112,7 @@ trip.split.exact <- function(x, dates) {
     names(all.list) <- ids
     for (id in ids) {
         x1 <- x[x[[tor[2]]] == id, ]
-        all.list[[id]] <- single.trip.split(x1, dates)
+        all.list[[id]] <- trip:::.single.trip.split(x1, dates)
     }
     all.names <- unique(unlist(lapply(all.list, names)))
     ord <- order(as.POSIXct(all.names))
@@ -136,7 +136,8 @@ trip.split.exact <- function(x, dates) {
         nlist[[i]] <- res.list[[i]][[1]]
         if (length(res.list[[i]]) > 1) {
             for (j in 2:length(res.list[[i]])) {
-                nlist[[i]] <- tripRbind(nlist[[i]], res.list[[i]][[j]])
+                nlist[[i]] <- trip:::.tripRbind(nlist[[i]],
+                                                res.list[[i]][[j]])
             }
         }
     }

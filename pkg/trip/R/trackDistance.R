@@ -1,7 +1,7 @@
 # $Id$
 
 ## taken from package sp/src/gcdist.c
-gcdist.c <- function(lon1, lat1, lon2, lat2) {
+.gcdist.c <- function(lon1, lat1, lon2, lat2) {
     DE2RA <- pi / 180
     a <- 6378.137            # /* WGS-84 equatorial radius in km */
     f <- 1.0 / 298.257223563 # /* WGS-84 ellipsoid flattening factor */
@@ -48,7 +48,7 @@ trackDistance <- function(x1, y1, x2, y2, longlat=TRUE) {
     if (nx != length(y1) | nx != length(x2) | nx != length(y2))
         stop("arguments must have equal lengths")
     if (longlat) {
-        gcdist.c(x1, y1, x2, y2)
+        trip:::.gcdist.c(x1, y1, x2, y2)
     } else sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2)
 }
 
