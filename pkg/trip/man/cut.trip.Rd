@@ -107,4 +107,3 @@ print("you may need to resize the window to see the grid data")
 % R documentation directory.
 \keyword{ manip }
 \keyword{ chron }
-
