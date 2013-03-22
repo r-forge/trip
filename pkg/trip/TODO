@@ -43,6 +43,9 @@ within individual trips, it should provide total distance and average speed
 summary() too (with appropriate overrides for various kinds of distance
 calcualtion).
 
+[SPL]: Perhaps the summary method for trip should return this information
+in the summary.TORdata class.
+
 
 * DONE
 

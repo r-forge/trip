@@ -106,6 +106,10 @@
 }
 
 trip.split.exact <- function(x, dates) {
+    .Deprecated("cut.trip")
+    cut(x, dates)
+}
+cut.trip <- function(x, dates, ...) {
     tor <- getTORnames(x)
     ids <- unique(x[[tor[2]]])
     all.list <- vector("list", length(ids))

@@ -1,5 +1,5 @@
-\name{trip.split.exact}
-\alias{trip.split.exact}
+\name{cut.trip}
+\alias{cut.trip}
 
 \title{
 Split trip events into exact time-based boundaries. 
@@ -9,7 +9,7 @@ Split trip events within a single object into exact time
 boundaries, adding interpolated coordinats as required.
 }
 \usage{
-trip.split.exact(x, dates)
+\method{cut}{trip}(x, dates, \ldots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,6 +20,7 @@ trip.split.exact(x, dates)
 A vector of date-time boundaries. These must encompass all the time
 range of the entire trip object. 
 }
+\item{\ldots}{Unused arguments.}
 }
 \details{
   Motion between boundaries is assumed linear and extra
@@ -46,7 +47,7 @@ coordinates(d) <- ~x+y
 tr <- trip(d, c("tms", "id"))
 
 bound.dates <- seq(min(tr$tms)-1, max(tr$tms)+1, length = 5)
-trip.list <- trip.split.exact(tr, bound.dates)
+trip.list <- cut(tr, bound.dates)
 bb <- bbox(tr)
 cn <- c(20, 8)
 g <- GridTopology(bb[,1], apply(bb, 1, diff) / (cn - 1), cn)
