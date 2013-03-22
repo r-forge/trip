@@ -1,4 +1,16 @@
+2013-03-22  Sebastian P. Luque <spluque@gmail.com>
+
+	* man/cut.trip.Rd, man/trip.split.exact.Rd:
+	  Rename file, following deprecation of trip.split.exact().
+
+	* NAMESPACE, R/trip.split.R, TODO, man/trip-deprecated.Rd,
+	  man/trip.split.exact.Rd:
+	  Implemented cut() method, deprecating trip.split.exact().
+
 2013-03-21  Sebastian P. Luque <spluque@gmail.com>
+
+	* R/speedfilter.R:
+	  Replace equal assignment operator.
 
 	* NAMESPACE:
 	  Restrict the classes that are exported.
