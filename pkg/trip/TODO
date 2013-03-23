@@ -17,9 +17,6 @@
 What about this?
 
 
-* Make trip.split.exact() a cut() method
-
-
 * TimeOrderedRecords approach
 
 [MDS]: I think TimeOrderedRecords is a bit of overkill, it was originally
@@ -48,6 +45,8 @@ in the summary.TORdata class.
 
 
 * DONE
+
+** Make trip.split.exact() a cut() method
 
 ** Investigate uses of "trackDistance" for handling projection option
    vs. default

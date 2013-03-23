@@ -1,3 +1,4 @@
+%% $Id$
 \name{trip-deprecated}
 
 \alias{trip.split.exact}
