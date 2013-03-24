@@ -23,7 +23,9 @@ speedfilter(x, max.speed=NULL, test=FALSE)
 \arguments{
   
   \item{x}{trip object}
+
   \item{max.speed}{speed in kilometres per hour}
+
   \item{test}{cut the algorithm short and just return first pass}
   
 }

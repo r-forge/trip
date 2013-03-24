@@ -1,8 +1,8 @@
 %% $Id$
 \name{trip-class}
 \docType{class}
-
 \alias{trip-class}
+
 %\alias{[,trip-method}
 \alias{[,trip,ANY,ANY,ANY-method}
 \alias{lines,trip-method}
@@ -29,12 +29,12 @@
 \alias{as.data.frame.trip}
 
 
-\title{Class "trip"}
+\title{Class \code{"trip"}}
 
 
 \description{
 
-  An extension of \code{"SpatialPointsDataFrame"} by including
+  An extension of \code{\link[sp]{SpatialPointsDataFrame}} by including
   \code{"TimeOrderedRecords"}.  The records within the data frame are
   explicitly ordered by DateTime data within IDs.
 
@@ -46,9 +46,9 @@
   Objects can be created by calls of the form
   \code{trip(obj="SpatialPointsDataFrame",
   TORnames="TimeOrderedRecords")}.  The object contains all the slots
-  present within a \code{SpatialPointsDataFrame}, particularly
-  \code{data} which contains columns of at least those specified by
-  \code{TOR.columns}.
+  present within a \code{\link[sp]{SpatialPointsDataFrame}},
+  particularly \code{data} which contains columns of at least those
+  specified by \code{TOR.columns}.
 
 }
 
@@ -66,7 +66,7 @@
     
   }
 
-  Also, other slots usual to a \code{SpatialPointsDataFrame}
+  Also, other slots usual to a \code{\link[sp]{SpatialPointsDataFrame}}.
 
 }
 
@@ -93,7 +93,7 @@
 	TORnames="ANY"}}{The usual construction}
 
     \item{[}{\code{signature(x="trip")}: subset rows or columns as per
-      \code{SpatialPointsDataFrame}.  In the case that
+      \code{\link[sp]{SpatialPointsDataFrame}}.  In the case that
       \code{TimeOrderedRecords} columns are dropped, the object reverts
       to the straight Spatial version.}
 
@@ -104,7 +104,7 @@
     % of the data}
   
     \item{plot}{\code{signature(x="trip", y="missing")}: plot as
-      \code{SpatialPoints}}
+      \code{\link[sp]{SpatialPoints}}}
     
     \item{points}{\code{signature(x="trip")}: add points to a plot
       using the Spatial coordinates}
@@ -119,8 +119,8 @@
     % coordinates via rgal PROJ.4}
 
     \item{summary}{\code{signature(object="trip")}: print a summary as
-      per \code{SpatialPointsDataFrame} including a summary of the trip
-      data}
+      per \code{\link[sp]{SpatialPointsDataFrame}} including a summary
+      of the trip data}
     
     \item{text}{\code{signature(x="trip")}: add text to a plot using
       Spatial coordinates}

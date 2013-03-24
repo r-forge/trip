@@ -22,11 +22,17 @@ tripGrid(x, grid=NULL, method="pixellate", ...)
 
 
 \arguments{
-  \item{x}{object of class trip}
+
+  \item{x}{object of class \code{trip}}
+
   \item{grid}{GridTopology - will be generated automatically if NULL}
+
   \item{method}{pixellate or density}
+
   \item{...}{pass arguments to density.psp if that method is chosen (and
-    temporary mechanism to direct users of legacy methods to tripGrid.interp)}
+    temporary mechanism to direct users of legacy methods to
+    tripGrid.interp)}
+  
 }
 
 

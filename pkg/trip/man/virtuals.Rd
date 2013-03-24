@@ -14,14 +14,14 @@
 \description{
 
   Virtual S4 class definition for S3 classes in the spatstat and
-  adehabitatLT packages to allow S4-style coercion to these classes
+  adehabitatLT packages to allow S4-style coercion to these classes.
 
 }
 
 
 \section{Objects from the Class}{
 
-  Virtual Classes: No objects may be created from these
+  Virtual Classes: No objects may be created from these.
 
 }
 

@@ -19,8 +19,11 @@ trip.split.exact(x, dates)
 
 
 \arguments{
+
   \item{x}{see \code{\link{cut.trip}}}
+
   \item{dates}{see \code{\link{cut.trip}}}
+  
 }
 
 

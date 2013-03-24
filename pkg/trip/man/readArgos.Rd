@@ -59,8 +59,8 @@ readArgos(x, correct.all=TRUE, dtFormat="\%Y-\%m-\%d \%H:\%M:\%S",
   and is not robust.
   
   If validation fails the function will return a
-  \code{SpatialPointsDataFrame}.  Files that are not obviously of the
-  required format are skipped.
+  \code{\link[sp]{SpatialPointsDataFrame}}.  Files that are not
+  obviously of the required format are skipped.
   
   Argos location quality data "class" are ordered, assuming that the
   available levels is \code{levels=c("Z", "B", "A", "0", "1", "2",
@@ -76,7 +76,7 @@ readArgos(x, correct.all=TRUE, dtFormat="\%Y-\%m-\%d \%H:\%M:\%S",
 \value{
   
   A \code{trip} object, if all goes well, or simply a
-  \code{SpatialPointsDataFrame}.
+  \code{\link[sp]{SpatialPointsDataFrame}}.
   
 }
 

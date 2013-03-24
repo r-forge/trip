@@ -45,8 +45,8 @@ getTimeID(obj)
 \details{
   
   These simple functions are for creating classes with TimeOrdered
-  data. The main use is for SpatialPointsDataFrames which are used with
-  TimeOrderedRecords for the class \code{trip}.
+  data. The main use is for \code{\link[sp]{SpatialPointsDataFrame}}s
+  which are used with TimeOrderedRecords for the class \code{trip}.
   
 }
 
@@ -66,7 +66,9 @@ getTimeID(obj)
 \seealso{
 
   \code{\link{trip}}, for the use of this class with
-  \code{\link[sp]{SpatialPointsDataFrame}}
+  \code{\link[sp]{SpatialPointsDataFrame}}.
+
+  \code{\link{trip-class}}
 
 }
 

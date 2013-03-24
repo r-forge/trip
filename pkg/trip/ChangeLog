@@ -1,3 +1,21 @@
+2013-03-24  Sebastian P. Luque <spluque@gmail.com>
+
+	* R/trip.split.R:
+	  Use identical() instead of all.equal() for testing.
+
+2013-03-23  Sebastian P. Luque <spluque@gmail.com>
+
+	* TODO, man/TimeOrderedRecords-class.Rd, man/TimeOrderedRecords.Rd,
+	  man/adjust.duplicateTimes.Rd, man/argos.sigma.Rd,
+	  man/as.SpatialLinesDataFrame.Rd, man/as.ltraj.Rd, man/as.ppp.Rd,
+	  man/cut.trip.Rd, man/filter.penSS.Rd, man/forceCompliance.Rd,
+	  man/makeGridTopology.Rd, man/oc.theme.Rd, man/readArgos.Rd,
+	  man/readDiag.Rd, man/sepIdGaps.Rd, man/speedfilter.Rd,
+	  man/trackDistance.Rd, man/trip-class.Rd, man/trip-deprecated.Rd,
+	  man/trip-internal.Rd, man/trip.Rd, man/tripGrid.Rd,
+	  man/tripGrid.interp.Rd, man/tripTransform.Rd, man/virtuals.Rd:
+	  Minor global formatting changes, and added Id SVN keyword.
+
 2013-03-22  Sebastian P. Luque <spluque@gmail.com>
 
 	* man/cut.trip.Rd, man/trip.split.exact.Rd:

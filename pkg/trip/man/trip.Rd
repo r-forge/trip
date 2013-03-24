@@ -28,8 +28,9 @@ trip(obj, TORnames)
 
 \arguments{
   
-  \item{obj}{A \code{SpatialPointsDataFrame}, containing at least two
-    columns with the DateTime and ID data as per \code{TORnames}}
+  \item{obj}{A \code{\link[sp]{SpatialPointsDataFrame}}, containing at
+    least two columns with the DateTime and ID data as per
+    \code{TORnames}}
 
   \item{TORnames}{Either an object of \code{TimeOrderedRecords}, or a
     2-element character vector specifying the DateTime and ID column of
@@ -40,9 +41,10 @@ trip(obj, TORnames)
 
 \value{
   
-  A trip object, with the usual slots of a \code{SpatialPointsDataFrame}
-  and the added \code{TimeOrderedRecords}. For the most part this can be
-  treated as a \code{data.frame} with \code{Spatial} coordinates.
+  A trip object, with the usual slots of a
+  \code{\link[sp]{SpatialPointsDataFrame}} and the added
+  \code{TimeOrderedRecords}. For the most part this can be treated as a
+  \code{data.frame} with \code{Spatial} coordinates.
  
 }
 
@@ -74,7 +76,7 @@ coordinates(dat) <- c("long", "lat")
 
 ## date/times may be in a particular time zone, please check
 dat$gmt <- as.POSIXct(strptime(paste(dat$date, dat$local),
-                      "%d-%b-%y %H:%M:%S"), tz="GMT")
+                      "\%d-\%b-\%y \%H:\%M:\%S"), tz="GMT")
 
 ## if there are problems in the data, this will error
 tr <- trip(dat, c("gmt", "seal"))

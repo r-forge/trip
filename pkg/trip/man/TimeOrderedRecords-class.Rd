@@ -6,7 +6,7 @@
 \alias{trip,ANY,TimeOrderedRecords-method}
 \alias{trip,trip,TimeOrderedRecords-method}
 
-\title{Class "TimeOrderedRecords"}
+\title{Class \code{"TimeOrderedRecords"}}
 
 
 \description{
