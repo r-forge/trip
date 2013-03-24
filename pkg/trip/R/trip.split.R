@@ -20,7 +20,7 @@
     ## suppressMessages(require(maptools))
     tor1 <- getTORnames(obj)
     tor2 <- getTORnames(x)
-    if (!all.equal(tor1, tor2)) stop("trips are not equivalent for rbind")
+    if (! identical(tor1, tor2)) stop("trips are not equivalent for rbind")
     SP <- spRbind(as(obj, "SpatialPoints"), as(x, "SpatialPoints"))
     df <- rbind(slot(obj, "data"), slot(x, "data"))
     dupes <- duplicated(cbind(coordinates(SP), df))
