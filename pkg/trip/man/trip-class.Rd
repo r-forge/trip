@@ -19,11 +19,6 @@
 \alias{summary,trip-method}
 \alias{text,trip-method}
 \alias{subset,trip-method}
-\alias{trip,ANY,ANY-method}
-\alias{trip,ANY,TimeOrderedRecords-method}
-\alias{trip,trip,TimeOrderedRecords-method}
-\alias{trip,trip,ANY-method}
-%% \alias{trip,SpatialPointsDataFrame,ANY-method}
 %\alias{$.trip,$<-.trip,[[.trip,[[<-.trip}
 \alias{as.data.frame.trip}
 
@@ -78,31 +73,15 @@
   
 }
 
-\section{Methods}{
+\section{General Methods}{
 
   Most of the methods available are by virtue of the sp package.  Some,
   such as \code{split.data.frame} have been added to SPDF so that trip
-  has the same functionality.
+  has the same functionality.  See \code{\link{trip-methods}} for
+  methods to create \code{trip} objects.
   
   \describe{
     
-    \item{trip}{\code{signature(obj="ANY", TORnames="ANY")}: try to
-      return a trip object.}
-    
-    \item{trip}{\code{signature(obj="ANY",
-      TORnames="TimeOrderedRecords")}: create a \code{trip} object from
-      a data frame.}
-    
-    \item{trip}{\code{signature(obj="trip", TORnames="ANY")}:
-      (re)-create a trip object by some other means }
-    
-    \item{trip}{\code{signature(obj="trip",
-	TORnames="TimeOrderedRecords")}: (re)-create a trip object using
-	\code{TimeOrderedRecords}}
-
-    \item{trip}{\code{signature(obj="SpatialPointsDataFrame",
-	TORnames="ANY"}}{The usual construction.}
-
     \item{[}{\code{signature(x="trip")}: subset rows or columns as per
       \code{\link[sp]{SpatialPointsDataFrame}}.  In the case that
       \code{TimeOrderedRecords} columns are dropped, the object reverts

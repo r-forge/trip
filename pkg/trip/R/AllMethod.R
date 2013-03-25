@@ -2,15 +2,12 @@
 
 ###_ + trip
 
-trip <- function(obj, TORnames) {
-    ## only spdf for now
-    if (! is(obj, "SpatialPointsDataFrame")) {
-        stop("trip only supports SpatialPointsDataFrame") #ANY?
-    }
-    if (is.factor(obj[[TORnames[2]]]))
-        obj[[TORnames[2]]] <- factor(obj[[TORnames[2]]])
-    new("trip", obj, TimeOrderedRecords(TORnames))
-}
+setMethod("trip", signature(obj="SpatialPointsDataFrame", TORnames="ANY"),
+          function(obj, TORnames) {
+              if (is.factor(obj[[TORnames[2]]]))
+                  obj[[TORnames[2]]] <- factor(obj[[TORnames[2]]])
+              new("trip", obj, TimeOrderedRecords(TORnames))
+          })
 
 setMethod("trip", signature(obj="ANY", TORnames="TimeOrderedRecords"),
           function(obj, TORnames) {

@@ -1,19 +1,26 @@
 %% $Id$
-\name{trip}
+\name{trip-methods}
+\docType{methods}
+\alias{trip-methods}
 \alias{trip}
-%- Also NEED an '\alias' for EACH other topic documented here.
+
+\alias{trip,SpatialPointsDataFrame,ANY-method}
+\alias{trip,ANY,TimeOrderedRecords-method}
+\alias{trip,trip,ANY-method}
+\alias{trip,trip,TimeOrderedRecords-method}
 
 
 \title{
 
-  Function to handle animal track data, organized as "trip"s
+  Function to handle animal track data, organized as \code{"trip"}s
 
 }
 
 
 \description{
   
-  Extend the basic functionality of a \code{Spatial} data frame by
+  Create an object of class \code{"trip"}, extending the basic
+  functionality of \code{\link[sp]{SpatialPointsDataFrame}} by
   specifying the data columns that define the "TimeOrdered" quality of
   the records.
   
@@ -21,21 +28,54 @@
 
 
 \usage{
-trip(obj, TORnames)
+
+\S4method{trip}{SpatialPointsDataFrame,ANY}(obj, TORnames)
+\S4method{trip}{ANY,TimeOrderedRecords}(obj, TORnames)
+\S4method{trip}{trip,ANY}(obj, TORnames)
+\S4method{trip}{trip,TimeOrderedRecords}(obj, TORnames)
+
 }
 %- maybe also 'usage' for other objects documented here.
 
 
 \arguments{
   
-  \item{obj}{A \code{\link[sp]{SpatialPointsDataFrame}}, containing at
-    least two columns with the DateTime and ID data as per
-    \code{TORnames}}
+  \item{obj}{A \code{\link[sp]{SpatialPointsDataFrame}}, or an object
+    that can be coerced to one, containing at least two columns with the
+    DateTime and ID data as per \code{TORnames}.  It can also be a
+    \code{trip} object for redefining \code{TORnames}.}
 
-  \item{TORnames}{Either an object of \code{TimeOrderedRecords}, or a
+  \item{TORnames}{Either a \code{TimeOrderedRecords} object, or a
     2-element character vector specifying the DateTime and ID column of
     \code{obj}}
 
+}
+
+
+\section{Methods}{
+
+  Most of the methods available are by virtue of the sp package.  Some,
+  such as \code{split.data.frame} have been added to SPDF so that trip
+  has the same functionality.
+  
+  \describe{
+    
+    \item{trip}{\code{signature(obj="SpatialPointsDataFrame",
+	TORnames="ANY")}}{The main construction.}
+
+    \item{trip}{\code{signature(obj="ANY",
+      TORnames="TimeOrderedRecords")}: create a \code{trip} object from
+      a data frame.}
+    
+    \item{trip}{\code{signature(obj="trip", TORnames="ANY")}:
+      (Re)-create a \code{trip} object using a character vector for
+      \code{TORnames}.}
+    
+    \item{trip}{\code{signature(obj="trip",
+	TORnames="TimeOrderedRecords")}: (re)-create a trip object using
+	a \code{TimeOrderedRecords} object.}
+
+    }
 }
 
 
@@ -101,4 +141,5 @@ tr <- trip(dat, c("gmt", "seal"))
 }
 
 
-\keyword{manip}% at least one, from doc/KEYWORDS
+\keyword{methods}
+\keyword{manip}
