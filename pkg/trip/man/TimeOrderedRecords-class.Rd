@@ -3,8 +3,8 @@
 \docType{class}
 \alias{TimeOrderedRecords-class}
 
-\alias{trip,ANY,TimeOrderedRecords-method}
-\alias{trip,trip,TimeOrderedRecords-method}
+\alias{TimeOrderedRecords}
+
 
 \title{Class \code{"TimeOrderedRecords"}}
 
@@ -20,8 +20,9 @@
 \section{Objects from the Class}{
 
   Objects can be created by calls of the form
-  \code{new("TimeOrderedRecords", TOR.columns)}.  \code{TOR.columns} are
-  a 2-element character vector specifying the DateTime and ID columns in
+  \code{new("TimeOrderedRecords", TOR.columns)}, or
+  \code{TimeOrderedRecords(x)}.  \code{x} and \code{TOR.columns} are a
+  2-element character vector specifying the DateTime and ID columns in
   an object of class \code{trip}.
   
 }
@@ -38,19 +39,35 @@
 }
 
 
-\section{Methods}{
+\usage{
 
-  \describe{
-    
-    \item{trip}{\code{signature(obj="ANY",
-      TORnames="TimeOrderedRecords")}: create a \code{trip} object from
-      a data frame.}
-    
-    \item{trip}{\code{signature(obj="trip",
-      TORnames="TimeOrderedRecords")}: create a \code{trip} object from
-      an existing \code{trip} object.}
-    
-  }
+TimeOrderedRecords(x)
+
+}
+
+
+\arguments{
+  
+  \item{x}{Character vector of 2-elements, specifying the data columns
+    of DateTimes and IDs.}
+  
+}
+
+
+\details{
+  
+  The main use of this class and creator function is for
+  \code{\link[sp]{SpatialPointsDataFrame}}s which are used with
+  TimeOrderedRecords for the class \code{trip}.
+  
+}
+
+
+\value{
+
+  \code{TimeOrderedRecords} returns an object with a 2-element character
+  vector, specifying the columns names.
+
 }
 
 
@@ -83,3 +100,4 @@ tor <- TimeOrderedRecords(c("datetime", "ID"))
 
 
 \keyword{classes}
+\keyword{methods}
