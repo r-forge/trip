@@ -16,15 +16,14 @@
 \alias{recenter,trip-method}
 \alias{show,trip-method}
 \alias{show,summary.TORdata-method}
-%\alias{spTransform,trip,CRS-method}
 \alias{summary,trip-method}
 \alias{text,trip-method}
 \alias{subset,trip-method}
+\alias{trip,ANY,ANY-method}
+\alias{trip,ANY,TimeOrderedRecords-method}
+\alias{trip,trip,TimeOrderedRecords-method}
 \alias{trip,trip,ANY-method}
-\alias{trip,SpatialPointsDataFrame,ANY-method}
-\alias{trip,ANY,ANY}
-%\alias{trip,ANY,ANY,ANY}
-\alias{trip,trip-method}
+%% \alias{trip,SpatialPointsDataFrame,ANY-method}
 %\alias{$.trip,$<-.trip,[[.trip,[[<-.trip}
 \alias{as.data.frame.trip}
 
@@ -87,10 +86,22 @@
   
   \describe{
     
-    \item{trip}{\code{signature("ANY")}: try to return a trip object}
+    \item{trip}{\code{signature(obj="ANY", TORnames="ANY")}: try to
+      return a trip object.}
     
+    \item{trip}{\code{signature(obj="ANY",
+      TORnames="TimeOrderedRecords")}: create a \code{trip} object from
+      a data frame.}
+    
+    \item{trip}{\code{signature(obj="trip", TORnames="ANY")}:
+      (re)-create a trip object by some other means }
+    
+    \item{trip}{\code{signature(obj="trip",
+	TORnames="TimeOrderedRecords")}: (re)-create a trip object using
+	\code{TimeOrderedRecords}}
+
     \item{trip}{\code{signature(obj="SpatialPointsDataFrame",
-	TORnames="ANY"}}{The usual construction}
+	TORnames="ANY"}}{The usual construction.}
 
     \item{[}{\code{signature(x="trip")}: subset rows or columns as per
       \code{\link[sp]{SpatialPointsDataFrame}}.  In the case that
@@ -125,13 +136,6 @@
     \item{text}{\code{signature(x="trip")}: add text to a plot using
       Spatial coordinates}
 
-    \item{trip}{\code{signature(obj="trip",
-	TORnames="TimeOrderedRecords")}: (re)-create a trip object using
-	\code{TimeOrderedRecords}}
-
-    \item{trip}{\code{signature(obj="trip", TORnames="ANY")}:
-      (re)-create a trip object by some other means }
-    
     %\item{subset}{\code{signature(x="trip", subset, select, drop=FALSE,
     %...)}: subset a trip in the expected manner.}
 
