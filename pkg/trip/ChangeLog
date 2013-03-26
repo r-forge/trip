@@ -1,3 +1,23 @@
+2013-03-26  Sebastian P. Luque <spluque@gmail.com>
+
+	* man/trip-class.Rd, man/trip-internal.Rd, man/trip-methods.Rd:
+	  Moving doc pieces where they belong.
+
+2013-03-25  Sebastian P. Luque <spluque@gmail.com>
+
+	* R/AllMethod.R, man/trip-class.Rd, man/trip-methods.Rd,
+	  man/trip.Rd:
+	  Make the SpatialPointsDataFrame the default method, and separate
+	  documentation for trip methods. Remove unnecessary \alias, and
+	  methods for removed stand-alone function.
+
+	* man/trip-accessors.Rd, man/trip-class.Rd:
+	  Separate documentation for accessors, and remove unnecessary
+	  \alias'es.
+
+	* man/TimeOrderedRecords-class.Rd, man/TimeOrderedRecords.Rd:
+	  Consolidate TimeOrderedRecords documentation.
+
 2013-03-24  Sebastian P. Luque <spluque@gmail.com>
 
 	* R/trip.split.R:
