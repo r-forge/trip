@@ -130,16 +130,6 @@
 \author{Michael D. Sumner }
 
 
-\section{Warning}{
-
-  There are some kludges to allow \code{trip} to do things, such as
-  replace \code{POSIXt} column data using \code{"$<-.trip"} and
-  \code{"[[<-.trip"} which should not be necessary once sp implements
-  the new \code{data.frame} class of R >=2.4.0.
-
-}
-
-
 \seealso{
   
   \code{\link{trip}} for examples of directly using the class.

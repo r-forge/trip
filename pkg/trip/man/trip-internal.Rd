@@ -3,7 +3,6 @@
 \alias{trip-internal}
 
 \alias{.validTORdata}
-\alias{trip.default}
 \alias{dim.trip}
 \alias{[[.trip}
 \alias{[[<-.trip}
@@ -13,8 +12,6 @@
 \alias{print.trip}
 \alias{.oc.col}
 \alias{.single.trip.split}
-%% temporarily added to pass CHECK, before real hard NAMESPACE work
-%% 2012-10-09
 \alias{.g2ow}
 \alias{.gcdist.c}
 \alias{.intpFun}
