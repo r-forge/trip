@@ -16,7 +16,7 @@
 
 
 \usage{
-tripGrid(x, grid=NULL, method="pixellate", ...)
+tripGrid(x, grid=NULL, method="pixellate", \ldots)
 }
 %- maybe also 'usage' for other objects documented here.
 
@@ -29,9 +29,9 @@ tripGrid(x, grid=NULL, method="pixellate", ...)
 
   \item{method}{pixellate or density}
 
-  \item{...}{pass arguments to density.psp if that method is chosen (and
-    temporary mechanism to direct users of legacy methods to
-    tripGrid.interp)}
+  \item{\ldots}{pass arguments to density.psp if that method is chosen
+    (and temporary mechanism to direct users of legacy methods to
+    \code{\link{tripGrid.interp}})}
   
 }
 

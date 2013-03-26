@@ -16,15 +16,17 @@
     
     \item{coerce}{\code{signature(from="trip", to="ltraj")}}
     
-     \item{coerce}{\code{signature(from="ltraj", to="trip")}}
-     
-   }
- }
+    \item{coerce}{\code{signature(from="ltraj", to="trip")}}
+    
+  }
+}
 
  
 \usage{
+
 as.ltraj.trip(xy, typeII=TRUE, slsp="remove")
 ltraj2trip(ltr)
+
 }
 
 

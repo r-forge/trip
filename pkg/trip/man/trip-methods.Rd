@@ -64,8 +64,8 @@
 	TORnames="ANY")}}{The main construction.}
 
     \item{trip}{\code{signature(obj="ANY",
-      TORnames="TimeOrderedRecords")}: create a \code{trip} object from
-      a data frame.}
+	TORnames="TimeOrderedRecords")}: create a \code{trip} object
+      from a data frame.}
     
     \item{trip}{\code{signature(obj="trip", TORnames="ANY")}:
       (Re)-create a \code{trip} object using a character vector for
@@ -73,9 +73,9 @@
     
     \item{trip}{\code{signature(obj="trip",
 	TORnames="TimeOrderedRecords")}: (re)-create a trip object using
-	a \code{TimeOrderedRecords} object.}
-
-    }
+      a \code{TimeOrderedRecords} object.}
+      
+  }
 }
 
 

@@ -65,4 +65,4 @@ getTORnames(tor)
 }
 
 
-\keyword{manip }% at least one, from doc/KEYWORDS
+\keyword{manip}% at least one, from doc/KEYWORDS

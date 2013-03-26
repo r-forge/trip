@@ -17,6 +17,7 @@
 
 
 \usage{
+
 trackDistance(x1, y1, x2, y2, longlat=TRUE) 
 
 %gcdist(lon1, lat1, lon2, lat2)
@@ -52,7 +53,7 @@ trackDistance(x1, y1, x2, y2, longlat=TRUE)
   longlat is FALSE, and in kilometres when longlat is TRUE.
   
   This originally used \code{\link[sp]{spDistsN1}} but now implements
-  the sp gcdist source directly in R.
+  the sp \code{gcdist} source directly in R.
 
 }
 

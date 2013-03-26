@@ -18,13 +18,13 @@
     \item{coerce}{\code{signature(from="trip",
 	to="SpatialLinesDataFrame")}}
      
-   }
- }
+  }
+}
 
  
 \usage{
 as.trip.SpatialLinesDataFrame(from)
-%%as(from, "SpatialLinesDataFrame")
+%% as(from, "SpatialLinesDataFrame")
 }
 
 
@@ -51,6 +51,4 @@ as(tr, "SpatialLinesDataFrame")
 
 
 \keyword{spatial}
-
-
 \keyword{manip}

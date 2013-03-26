@@ -20,10 +20,12 @@
 
 
 \usage{
-tripGrid.interp(x, grid=NULL, method="count", dur=NULL,  ...)
+
+tripGrid.interp(x, grid=NULL, method="count", dur=NULL,  \ldots)
 interpequal(x, dur=NULL, quiet=FALSE)
 countPoints(x, dur=1, grid=NULL) 
-kdePoints(x, h=NULL, grid=NULL, resetTime=TRUE, ...)
+kdePoints(x, h=NULL, grid=NULL, resetTime=TRUE, \ldots)
+
 }
 %- maybe also 'usage' for other objects documented here.
 

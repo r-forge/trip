@@ -22,8 +22,11 @@ oc.colors(n)
 
 
 \arguments{
+
   \item{x}{Number of colours to generate as part of a theme}
+
   \item{n}{Number of colours to generate  }
+
 }
 
 

@@ -15,13 +15,17 @@
 
 
 \usage{
-filter.penSS(tr, lambda, first=TRUE, last=TRUE, ...)
+
+filter.penSS(tr, lambda, first=TRUE, last=TRUE, \ldots)
+
 }
 %- maybe also 'usage' for other objects documented here.
 
 
 \arguments{
+
   \item{tr}{A \code{trip} object.}
+
   \item{lambda}{Smoothing parameter, see Details.}
 
   \item{first}{Fix the first location and prevent it from being updated
@@ -30,7 +34,7 @@ filter.penSS(tr, lambda, first=TRUE, last=TRUE, ...)
   \item{last}{Fix the last location and prevent it from being updated by
     the filter.}
   
-  \item{\dots}{%% ~~Describe \code{\dots} here~~
+  \item{\ldots}{%% ~~Describe \code{\dots} here~~
   }
 
 }
@@ -47,7 +51,7 @@ filter.penSS(tr, lambda, first=TRUE, last=TRUE, ...)
   trade off goodness of fit against increasing the total sum of squared
   velocities.
 
-  When lamda=0 the smoothed track reproduces the raw track
+  When lambda=0 the smoothed track reproduces the raw track
   exactly. Increasing lambda favours tracks requiring less extreme
   velocities, at the expense of reproducing the original locations.
 
@@ -131,5 +135,5 @@ lines(trf)
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{manip}
+\keyword{misc}% __ONLY ONE__ keyword per line

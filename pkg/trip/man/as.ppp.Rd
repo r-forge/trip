@@ -21,23 +21,25 @@
     
     \item{coerce}{\code{signature(from="trip", to="ppp")}}
     
-     \item{coerce}{\code{signature(from="trip", to="psp")}}
+    \item{coerce}{\code{signature(from="trip", to="psp")}}
      
-   }
+  }
 }
 
  
 \usage{
-\method{as.ppp}{trip}(X, ..., fatal)
-\method{as.psp}{trip}(x, ..., from, to)
+
+\method{as.ppp}{trip}(X, \ldots, fatal)
+\method{as.psp}{trip}(x, \ldots, from, to)
+
 }
 
 
 \arguments{
-  \item{X,x}{trip object}
-  \item{...}{Ignored}
+  \item{X, x}{trip object}
+  \item{\ldots}{Ignored}
   \item{fatal}{Logical value, see Details of as.ppp}
-  \item{from,to}{See as.psp}
+  \item{from, to}{See as.psp}
 }
 
 

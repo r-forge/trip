@@ -52,10 +52,14 @@ sepIdGaps(id, gapdata, minGap=3600 * 24 * 7)
 \author{Michael D. Sumner}
 
 
-\section{Warning }{It is assumed that each vector provides is sorted by
-  \code{gapdata} within \code{id}. No checking is done, and so it is
-  suggested that this only be used on ID columns within existing,
-  validated \code{trip} objects}
+\section{Warning}{
+
+  It is assumed that each vector provides is sorted by \code{gapdata}
+  within \code{id}. No checking is done, and so it is suggested that
+  this only be used on ID columns within existing, validated \code{trip}
+  objects.
+
+}
 
 
 \seealso{\code{\link{trip}}}

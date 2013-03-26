@@ -21,6 +21,7 @@
 readArgos(x, correct.all=TRUE, dtFormat="\%Y-\%m-\%d \%H:\%M:\%S",
           tz="GMT", duplicateTimes.eps=0.01,
           p4="+proj=longlat +ellps=WGS84", verbose=FALSE)
+
 }
 %- maybe also 'usage' for other objects documented here.
 

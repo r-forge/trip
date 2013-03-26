@@ -121,5 +121,5 @@ print("you may need to resize the window to see the grid data")
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ manip }
-\keyword{ chron }
+\keyword{manip}
+\keyword{chron}

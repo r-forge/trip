@@ -115,16 +115,16 @@
     \item{text}{\code{signature(x="trip")}: add text to a plot using
       Spatial coordinates}
 
-    %\item{subset}{\code{signature(x="trip", subset, select, drop=FALSE,
-    %...)}: subset a trip in the expected manner.}
+    %% \item{subset}{\code{signature(x="trip", subset, select, drop=FALSE,
+    %% \ldots)}: subset a trip in the expected manner.}
 
-    \item{subset}{\code{signature(x="trip", ...)}: subset a trip in the
-      expected manner.}
+    \item{subset}{\code{signature(x="trip", \ldots)}: subset a trip in
+      the expected manner.}
 
-      %\item{split}{\code{signature(x="trip")}: split a trip like a data frame}
+    %% \item{split}{\code{signature(x="trip")}: split a trip like a data frame}
 
-    }
   }
+}
 
 
 \author{Michael D. Sumner }

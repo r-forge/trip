@@ -23,10 +23,12 @@ forceCompliance(x, tor)
 \arguments{
 
   \item{x}{\code{\link{data.frame}} or
-  \code{\link[sp]{SpatialPointsDataFrame}}}
+    \code{\link[sp]{SpatialPointsDataFrame}}}
 
   \item{tor}{character vector of names of date-times and trip ID
-    columns}}
+    columns}
+
+}
 
 
 \value{\code{\link{data.frame}} or

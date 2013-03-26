@@ -13,7 +13,7 @@
 
 
 \usage{
-tripTransform(x, crs, ...)
+tripTransform(x, crs, \ldots)
 }
 %- maybe also 'usage' for other objects documented here.
 
@@ -67,4 +67,4 @@ tripTransform(tr, "+proj=longlat")
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ manip }
+\keyword{manip}
