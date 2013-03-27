@@ -1,5 +1,15 @@
 # $Id$
 
+###_ + TimeOrderedRecords
+
+TimeOrderedRecords <- function(x) {
+    new("TimeOrderedRecords", TOR.columns=x)
+}
+
+getTORnames <- function(obj) obj@TOR.columns
+getTimeID <- function(obj) as.data.frame(obj)[, getTORnames(obj)]
+
+
 ###_ + trip
 
 setMethod("trip", signature(obj="SpatialPointsDataFrame", TORnames="ANY"),
@@ -26,7 +36,8 @@ setMethod("trip", signature(obj="trip", TORnames="ANY"),
               trip(as(obj, "SpatialPointsDataFrame"), TORnames)
           })
 
-setReplaceMethod("[[", c("trip", "ANY", "missing", "ANY"),
+setReplaceMethod("[[",
+                 signature(x="trip", i="ANY", j="missing", value="ANY"),
                  function(x, i, j, value) {
                      tor <- getTORnames(x)
                      x <- as(x, "SpatialPointsDataFrame")
@@ -52,9 +63,9 @@ names.trip <- function(x) names(as(x, "SpatialPointsDataFrame"))
 
 ###_ + sp methods
 
-setMethod("points", "trip",
+setMethod("points", signature(x="trip"),
           function(x, ...) points(as(x, "SpatialPointsDataFrame"), ...))
-setMethod("text", "trip",
+setMethod("text", signature(x="trip"),
           function(x, ...) text(as(x, "SpatialPointsDataFrame"), ...))
 
 #setMethod("split", "SpatialPointsDataFrame", split.data.frame)
@@ -82,7 +93,7 @@ setMethod("plot", signature(x="trip", y="missing"),
 
 ###_ + Subsetting trip
 
-setMethod("subset", "trip",
+setMethod("subset", signature(x="trip"),
           function(x,  ...) {
               spdf <- subset(as(x, "SpatialPointsDataFrame"), ...)
               tor <- getTORnames(x)
@@ -105,7 +116,7 @@ setMethod("subset", "trip",
               }
           })
 
-setMethod("[", "trip",
+setMethod("[", signature(x="trip"),
           function(x, i, j, ... , drop=TRUE) {
               missing.i <- missing(i)
               missing.j <- missing(j)
@@ -150,29 +161,28 @@ setMethod("[", "trip",
 
 ###_ + Summary, print, and show
 
-setMethod("summary", "trip",
+setMethod("summary", signature(object="trip"),
           function(object, ...) {
               obj <- list(spdf=summary(as(object,
                             "SpatialPointsDataFrame")))
-              ## method or not here?
-              time <- object[[object@TOR.columns[1]]]
-              ids <- object[[object@TOR.columns[2]]]
-              tmins <- tapply(time, ids, min) +
-                  ISOdatetime(1970, 1, 1, 0, 0,0, tz="GMT")
-              tmaxs <- tapply(time, ids, max) +
-                  ISOdatetime(1970, 1, 1, 0, 0,0, tz="GMT")
-              nlocs <- tapply(time, ids, length)
-              obj[["class"]] <- class(object)
-              obj[["tmins"]] <- tmins
-              obj[["tmaxs"]] <- tmaxs
-              obj[["tripID"]] <- levels(factor(ids))
-              obj[["nRecords"]] <- nlocs
-              obj[["TORnames"]] <- getTORnames(object)
-              obj[["tripDuration"]] <- tapply(time, ids, function(x) {
-                  x <- format(diff(range(x)))
-              })
-              obj[["tripDurationSeconds"]] <- tapply(time, ids, function(x) {
-                  x <- diff(range(unclass(x)))
+              tids <- getTimeID(object)
+              time <- tids[, 1]
+              ids <- tids[, 2]
+              obj <- within(obj, {
+                  class <- class(object)
+                  tmins <- tapply(time, ids, min) +
+                      ISOdatetime(1970, 1, 1, 0, 0,0, tz="GMT")
+                  tmaxs <- tapply(time, ids, max) +
+                      ISOdatetime(1970, 1, 1, 0, 0,0, tz="GMT")
+                  tripID <- levels(factor(ids))
+                  nRecords <- tapply(time, ids, length)
+                  TORnames <- getTORnames(object)
+                  tripDuration <- tapply(time, ids, function(x) {
+                      x <- format(diff(range(x)))
+                  })
+                  tripDurationSeconds <- tapply(time, ids, function(x) {
+                      x <- diff(range(unclass(x)))
+                  })
               })
               class(obj) <- "summary.TORdata"
               ## invisible(obj)
@@ -185,13 +195,14 @@ print.summary.TORdata <- function(x, ...) {
                         startTime=x$tmins,
                         endTime=x$tmaxs,
                         tripDuration=x$tripDuration)
+    torns <- x[["TORnames"]]
     names(dsumm)[1] <- paste(names(dsumm)[1],
-                             " (\"", x[["TORnames"]][2], "\")", sep="")
+                             " (\"", torns[2], "\")", sep="")
     names(dsumm)[3] <- paste(names(dsumm)[3],
-                             " (\"", x[["TORnames"]][1], "\")", sep="")
+                             " (\"", torns[1], "\")", sep="")
     names(dsumm)[4] <- paste(names(dsumm)[4],
-                             " (\"", x[["TORnames"]][1], "\")", sep="")
-    rownames(dsumm) <- 1:nrow(dsumm)
+                             " (\"", torns[1], "\")", sep="")
+    rownames(dsumm) <- seq(nrow(dsumm))
     ## dsumm <- as.data.frame(lapply(dsumm, as.character))
     cat(paste("\nObject of class ", x[["class"]], "\n", sep=""))
     print(format(dsumm, ...))
@@ -208,7 +219,7 @@ print.summary.TORdata <- function(x, ...) {
     cat("\n")
 }
 
-setMethod("show", "summary.TORdata",
+setMethod("show", signature(object="summary.TORdata"),
           function(object) print.summary.TORdata(object))
 
 print.trip <- function(x, ...) {
@@ -218,31 +229,33 @@ print.trip <- function(x, ...) {
                         startTime=xs$tmins,
                         endTime=xs$tmaxs,
                         tripDuration=xs$tripDuration)
+    torns <- xs[["TORnames"]]
     names(dsumm)[1] <- paste(names(dsumm)[1], " (\"",
-                             xs[["TORnames"]][2], "\")", sep="")
+                             torns[2], "\")", sep="")
     names(dsumm)[3] <- paste(names(dsumm)[3], " (\"",
-                             xs[["TORnames"]][1], "\")", sep="")
+                             torns[1], "\")", sep="")
     names(dsumm)[4] <- paste(names(dsumm)[4], " (\"",
-                             xs[["TORnames"]][1], "\")", sep="")
+                             torns[1], "\")", sep="")
     rownames(dsumm) <- 1:nrow(dsumm)
     ## dsumm <- as.data.frame(lapply(dsumm, as.character))
     cat(paste("\nObject of class ", xs[["class"]], "\n", sep=""))
     print(format(dsumm, ...))
     cat("\n")
     nms <- names(x)
-    clss <- unlist(lapply(as.data.frame(x@data),  function(x) class(x)[1]))
+    clss <- unlist(lapply(as.data.frame(x@data), function(x) class(x)[1]))
     sdf <- data.frame(data.columns=nms, data.class=clss)
     sdf[[" "]] <- rep("", nrow(sdf))
-    sdf[[" "]][which(names(x) == xs[["TORnames"]][1])] <- "**trip DateTime**"
-    sdf[[" "]][which(names(x) == xs[["TORnames"]][2])] <- "**trip ID**      "
-    row.names(sdf) <- 1:nrow(sdf)
+    sdf[[" "]][nms == torns[1]] <- "**trip DateTime**"
+    sdf[[" "]][nms == torns[2]] <- "**trip ID**      "
+    row.names(sdf) <- seq(nrow(sdf))
     print(sdf)
     cat("\n")
 }
 
-setMethod("show", "trip", function(object) print.trip(object))
+setMethod("show", signature(object="trip"),
+          function(object) print.trip(object))
 
-setMethod("recenter", "trip",
+setMethod("recenter", signature(obj="trip"),
           function(obj) {
               proj <- is.projected(obj)
               if (is.na(proj)) {
@@ -276,6 +289,9 @@ setMethod("recenter", "trip",
                        data=obj@data, coords.nrs=obj@coords.nrs),
                    obj@TOR.columns)
           })
+
+
+###_ + Tests
 
 
 
