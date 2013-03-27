@@ -53,9 +53,10 @@ ltraj2trip(ltr)
 utils::example("trip-methods", package="trip",
                ask=FALSE, echo=FALSE)
 
-require(adehabitatLT)
-l <- as.ltraj.trip(tr)
-ltraj2trip(l)
+if (require(adehabitatLT)) {
+    l <- as.ltraj.trip(tr)
+    ltraj2trip(l)
+}
 
 }
 

@@ -52,9 +52,10 @@
 utils::example("trip-methods", package="trip",
                ask=FALSE, echo=FALSE)
 
-require(spatstat)
-as.ppp(tr)
-as.psp(tr)
+if (require(spatstat)) {
+    as.ppp(tr)
+    as.psp(tr)
+}
 
 }
 
