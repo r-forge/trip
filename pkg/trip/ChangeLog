@@ -1,5 +1,12 @@
 2013-03-27  Sebastian P. Luque <spluque@gmail.com>
 
+	* NAMESPACE, R/AllGenerics.R, R/AllMethod.R,
+	  R/trip2other.R, man/as.SpatialLinesDataFrame.Rd, man/as.ltraj.Rd,
+	  man/trip-deprecated.Rd, man/trip-methods.Rd:
+	  Implementing 'as.trip' generic, with 'ltraj2trip' as definition
+	  for first method. Deprecating 'as.trip.SpatialLinesDataFrame',
+	  replacing it with 'as.SpatialLinesDataFrame'.trip'.
+
 	* man/virtuals.Rd:
 	  virtuals.Rd no longer needed.
 

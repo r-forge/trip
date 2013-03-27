@@ -1,23 +1,20 @@
 %% $Id$
-\name{as.ltraj.trip}
-\alias{as.ltraj.trip}
-
-\alias{as.trip}
+\name{as.trip-methods}
+\docType{methods}
 \alias{as.trip-methods}
+\alias{as.trip}
+
 \alias{as.trip,ltraj-method}
 \alias{ltraj2trip}
 \alias{coerce,trip,ltraj-method}
-\alias{coerce,ltraj,trip-method}
 
-\title{Coercion between trip objects and ltraj objects}
+\title{Coercion from other classes to \code{trip} objects}
 
-\description{coercion between classes}
+\description{Coercing objects to \code{trip} class}
 
 \section{Methods}{
   
   \describe{
-    
-    \item{coerce}{\code{signature(from="trip", to="ltraj")}}
     
     \item{coerce}{\code{signature(from="ltraj", to="trip")}}
 
@@ -29,7 +26,6 @@
  
 \usage{
 
-as.ltraj.trip(xy, typeII=TRUE, slsp="remove")
 ltraj2trip(ltr)
 
 \S4method{as.trip}{ltraj}(x, \ldots)
@@ -38,13 +34,6 @@ ltraj2trip(ltr)
 
 
 \arguments{
-  
-  \item{xy}{trip object}
-  
-  \item{typeII}{see \code{\link[adehabitatLT]{as.ltraj}}}
-  
-  \item{slsp}{details for the \code{\link[adehabitatLT]{ltraj}} turning
-    angles}
   
   \item{x, ltr}{ltraj object}
 
@@ -72,5 +61,6 @@ if (require(adehabitatLT)) {
 }
 
 
+\keyword{methods}
 \keyword{spatial}
 \keyword{manip}
