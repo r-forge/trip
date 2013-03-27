@@ -3,6 +3,7 @@
 \alias{trip-deprecated}
 
 \alias{trip.split.exact}
+\alias{as.trip.SpatialLinesDataFrame}
 
 % -------------------------------------------------------------------------
 
@@ -16,6 +17,7 @@
 
 \usage{
 trip.split.exact(x, dates)
+as.trip.SpatialLinesDataFrame(from)
 }
 
 
@@ -24,20 +26,15 @@ trip.split.exact(x, dates)
   \item{x}{see \code{\link{cut.trip}}}
 
   \item{dates}{see \code{\link{cut.trip}}}
-  
-}
 
-
-\details{
-
-  See \code{\link{cut.trip}}.
+  \item{from}{see \code{\link{as.SpatialLinesDataFrame.trip}}}
 
 }
 
 
 \seealso{
 
-  \code{\link{cut.trip}}
+  \code{\link{cut.trip}}, \code{\link{as.SpatialLinesDataFrame.trip}}
 
 }
 

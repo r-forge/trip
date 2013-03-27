@@ -291,6 +291,32 @@ setMethod("recenter", signature(obj="trip"),
           })
 
 
+###_ + Coercions
+
+ltraj2trip <- function (ltr)
+{
+    require(adehabitatLT)
+    if (!inherits(ltr, "ltraj"))
+        stop("ltr should be of class \"ltraj\"")
+    ltr <-  lapply(ltr, function(x) {
+        x$id=attr(x,  "id")
+        x$burst=attr(x,  "burst")
+        x})
+    tr <- do.call("rbind", ltr)
+    class(tr) <- "data.frame"
+    xy <- tr[!is.na(tr$x), c("x", "y")]
+    tr <- tr[!is.na(tr$x), ]
+    tr$y <- tr$x <- NULL
+    res <- SpatialPointsDataFrame(xy, tr)
+    trip(res, c("date", "id"))
+}
+
+setMethod("as.trip", signature(x="ltraj"),
+          function(x, ...) ltraj2trip(x))
+
+setAs("ltraj", "trip", function(from) as.trip(from))
+
+
 ###_ + Tests
 
 

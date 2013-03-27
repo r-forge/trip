@@ -26,6 +26,7 @@ exportClasses("TimeOrderedRecords",
               "trip")
 
 exportMethods("trip",
+              "as.trip",
               "points",
               "text",
               "lines",

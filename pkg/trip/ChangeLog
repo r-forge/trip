@@ -1,5 +1,15 @@
 2013-03-27  Sebastian P. Luque <spluque@gmail.com>
 
+	* man/virtuals.Rd:
+	  virtuals.Rd no longer needed.
+
+	* man/as.ltraj.Rd, man/as.ppp.Rd:
+	  execute examples requiring suggested packages only if available.
+
+	* man/trip-methods.Rd:
+	  Enable example using adehabitatLT, conditional on its
+	  availability.
+
 	* man/as.SpatialLinesDataFrame.Rd, man/as.ltraj.Rd, man/as.ppp.Rd,
 	  man/trip-class.Rd, man/trip-deprecated.Rd, man/trip-internal.Rd,
 	  man/trip-methods.Rd, man/tripTransform.Rd:
@@ -89,7 +99,7 @@
 	  man/trip-internal.Rd:
 	  Use summary.TORdata for consistency.
 
-	* ChangeLog, man/trip-class.Rd:
+	* man/trip-class.Rd:
 	  Add \alias for 'summary.tordata' show() method.
 
 	* TODO, man/trip-internal.Rd:

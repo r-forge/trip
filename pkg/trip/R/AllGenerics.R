@@ -20,6 +20,10 @@ if (!isGeneric("subset"))
     setGeneric("subset",
                function(x, ...) standardGeneric("subset"))
 
+if (!isGeneric("as.trip"))
+    setGeneric("as.trip",
+               function(x, ...) standardGeneric("as.trip"))
+
 
 ###_ + Emacs local variables
 ## Local variables:

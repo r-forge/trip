@@ -148,7 +148,7 @@ tr <- trip(dat, c("gmt", "seal"))
 
 if (require(adehabitatLT)) {
     data(porpoise)
-    (porpoise <- ltraj2trip(porpoise))
+    (porpoise <- as.trip(porpoise))
 }
 
 }

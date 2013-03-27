@@ -2,6 +2,9 @@
 \name{as.ltraj.trip}
 \alias{as.ltraj.trip}
 
+\alias{as.trip}
+\alias{as.trip-methods}
+\alias{as.trip,ltraj-method}
 \alias{ltraj2trip}
 \alias{coerce,trip,ltraj-method}
 \alias{coerce,ltraj,trip-method}
@@ -17,7 +20,9 @@
     \item{coerce}{\code{signature(from="trip", to="ltraj")}}
     
     \item{coerce}{\code{signature(from="ltraj", to="trip")}}
-    
+
+    \item{as.trip}{\code{signature(x="ltraj")}}
+
   }
 }
 
@@ -26,6 +31,8 @@
 
 as.ltraj.trip(xy, typeII=TRUE, slsp="remove")
 ltraj2trip(ltr)
+
+\S4method{as.trip}{ltraj}(x, \ldots)
 
 }
 
@@ -39,7 +46,10 @@ ltraj2trip(ltr)
   \item{slsp}{details for the \code{\link[adehabitatLT]{ltraj}} turning
     angles}
   
-  \item{ltr}{ltraj object}
+  \item{x, ltr}{ltraj object}
+
+  \item{\ldots}{Arguments passed to other methods. Ignored for
+  \code{ltraj} method.}
   
 }
 
@@ -56,6 +66,7 @@ utils::example("trip-methods", package="trip",
 if (require(adehabitatLT)) {
     l <- as.ltraj.trip(tr)
     ltraj2trip(l)
+    as.trip(l)
 }
 
 }

@@ -1,23 +1,5 @@
 # $Id$
 
-ltraj2trip <- function (ltr)
-{
-    require(adehabitatLT)
-    if (!inherits(ltr, "ltraj"))
-        stop("ltr should be of class \"ltraj\"")
-    ltr <-  lapply(ltr, function(x) {
-        x$id=attr(x,  "id")
-        x$burst=attr(x,  "burst")
-        x})
-    tr <- do.call("rbind", ltr)
-    class(tr) <- "data.frame"
-    xy <- tr[!is.na(tr$x), c("x", "y")]
-    tr <- tr[!is.na(tr$x), ]
-    tr$y <- tr$x <- NULL
-    res <- SpatialPointsDataFrame(xy, tr)
-    trip(res, c("date", "id"))
-}
-
 ## ltraj from adehabitat
 
 as.ltraj.trip <- function(xy, typeII=TRUE, slsp="remove") {
@@ -29,7 +11,6 @@ as.ltraj.trip <- function(xy, typeII=TRUE, slsp="remove") {
 }
 
 setAs("trip", "ltraj", function(from) as.ltraj.trip(from))
-setAs("ltraj", "trip", function(from) ltraj2trip(from))
 
 ## cases
 
@@ -77,8 +58,11 @@ setAs("trip", "psp", function(from) as.psp.trip(from))
 
 ## GIS integration
 ## as.trip.SpatialLinesDataFrame (use summary info - distance, time duration, ID)
-
 as.trip.SpatialLinesDataFrame <- function(from) {
+    .Deprecated(as.SpatialLinesDataFrame.trip)
+    as.SpatialLinesDataFrame.trip(from)
+}
+as.SpatialLinesDataFrame.trip <- function(from) {
     split.from <- split(from, from[[getTORnames(from)[2]]])
     sdf <- summary(from)
     df <- data.frame(tripID=sdf$tripID, tripStart=sdf$tmins,
@@ -95,7 +79,7 @@ as.trip.SpatialLinesDataFrame <- function(from) {
                           df)
 }
 
-setAs("trip", "SpatialLinesDataFrame", as.trip.SpatialLinesDataFrame)
+setAs("trip", "SpatialLinesDataFrame", as.SpatialLinesDataFrame.trip)
 
 
 

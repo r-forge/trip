@@ -1,6 +1,6 @@
 %% $Id$
-\name{as.trip.SpatialLinesDataFrame}
-\alias{as.trip.SpatialLinesDataFrame}
+\name{as.SpatialLinesDataFrame.trip}
+\alias{as.SpatialLinesDataFrame.trip}
 
 \alias{coerce,trip,SpatialLinesDataFrame-method}
 
@@ -23,14 +23,14 @@
 
  
 \usage{
-as.trip.SpatialLinesDataFrame(from)
+as.SpatialLinesDataFrame.trip(from)
 %% as(from, "SpatialLinesDataFrame")
 }
 
 
 \arguments{
   
-  \item{from}{trip object}
+  \item{from}{\code{trip} object}
 
 }
 
@@ -44,7 +44,7 @@ as.trip.SpatialLinesDataFrame(from)
 utils::example("trip-methods", package="trip",
                ask=FALSE, echo=FALSE)
 
-as.trip.SpatialLinesDataFrame(tr)
+as.SpatialLinesDataFrame.trip(tr)
 as(tr, "SpatialLinesDataFrame")
 
 }
