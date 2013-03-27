@@ -1,4 +1,36 @@
+2013-03-27  Sebastian P. Luque <spluque@gmail.com>
+
+	* man/as.SpatialLinesDataFrame.Rd, man/as.ltraj.Rd, man/as.ppp.Rd,
+	  man/trip-class.Rd, man/trip-deprecated.Rd, man/trip-internal.Rd,
+	  man/trip-methods.Rd, man/tripTransform.Rd:
+	  Implementing some examples, fixing \alias'es and moving where
+	  appropriate.
+
+	* R/speedfilter.R, R/trip.R:
+	  Use getTORnames() and getTimeID() where appropriate.
+
+	* DESCRIPTION:
+	  Remove TimeOrderedRecords from Collate field.
+
+	* R/AllMethod.R, R/TimeOrderedRecords.R:
+	  Move the few lines of code in TimeOrderedRecords.R to
+	  AllMethod.R.
+
+	  Use getTORnames() and getTimeID() where appropriate.
+
+	  Minor refactoring to improve legibility, and use signature() to
+	  build signatures.
+
 2013-03-26  Sebastian P. Luque <spluque@gmail.com>
+
+	* man/as.SpatialLinesDataFrame.Rd, man/as.ltraj.Rd, man/as.ppp.Rd,
+	  man/cut.trip.Rd, man/filter.penSS.Rd, man/forceCompliance.Rd,
+	  man/oc.theme.Rd, man/readArgos.Rd, man/readDiag.Rd,
+	  man/sepIdGaps.Rd, man/trackDistance.Rd, man/trip-accessors.Rd,
+	  man/trip-class.Rd, man/trip-methods.Rd, man/tripGrid.Rd,
+	  man/tripGrid.interp.Rd, man/tripTransform.Rd:
+	  More minor formatting of documentation, in preparation for more
+	  examples and testing.
 
 	* man/trip-class.Rd, man/trip-internal.Rd, man/trip-methods.Rd:
 	  Moving doc pieces where they belong.
