@@ -3,7 +3,9 @@
 \alias{readArgos}
 %- Also NEED an '\alias' for EACH other topic documented here.
 
-\title{Read Argos "DAT" files}
+\alias{readDiag}
+
+\title{Read Argos "DAT" or "DIAG" files}
 
 
 \description{
@@ -22,13 +24,15 @@ readArgos(x, correct.all=TRUE, dtFormat="\%Y-\%m-\%d \%H:\%M:\%S",
           tz="GMT", duplicateTimes.eps=0.01,
           p4="+proj=longlat +ellps=WGS84", verbose=FALSE)
 
+readDiag(x)
+
 }
 %- maybe also 'usage' for other objects documented here.
 
 
 \arguments{
   
-  \item{x}{vector of file names of Argos data}
+  \item{x}{vector of file names of Argos "DAT" or "DIAG" files.}
 
   \item{correct.all}{logical - enforce validity of data as much as possible? (see Details)}
 
@@ -50,8 +54,8 @@ readArgos(x, correct.all=TRUE, dtFormat="\%Y-\%m-\%d \%H:\%M:\%S",
 
 \details{
   
-  Basic validation checks for class \code{trip} are made, and enforced
-  based on \code{correct.all}:
+  \code{readArgos} performs basic validation checks for class
+  \code{trip} are made, and enforced based on \code{correct.all}:
   
   No duplicate records in the data, these are simply removed.  Records
   are ordered by DateTime ("date", "time", "gmt") within ID ("ptt").  No
@@ -70,14 +74,30 @@ readArgos(x, correct.all=TRUE, dtFormat="\%Y-\%m-\%d \%H:\%M:\%S",
   A projection string is added to the data, assuming the PROJ.4 longlat
   - if any longitudes are greater than 360 the PROJ.4 argument "+over"
   is added.
-  
+
+  \code{readDiag} simply builds a \code{data.frame}.
 }
 
 
 \value{
   
-  A \code{trip} object, if all goes well, or simply a
-  \code{\link[sp]{SpatialPointsDataFrame}}.
+  \code{readArgos} returns a \code{trip} object, if all goes well, or
+  simply a \code{\link[sp]{SpatialPointsDataFrame}}.
+
+  \code{readDiag} returns a \code{data.frame} with 8 columns:
+
+  \item{lon1, lat1 }{first pair of coordinates}
+
+  \item{lon2, lat2}{second pair of coordinates}
+
+  \item{gmt}{DateTimes as POSIXct}
+
+  \item{id}{Platform Transmitting Terminal (PTT) ID}
+
+  \item{lq}{Argos location quality class}
+
+  \item{iq}{some other thing}
+
   
 }
 

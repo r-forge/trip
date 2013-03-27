@@ -1,5 +1,10 @@
 2013-03-27  Sebastian P. Luque <spluque@gmail.com>
 
+	* man/as.Other.Rd, man/as.SpatialLinesDataFrame.Rd,
+	  man/as.ltraj.Rd, man/as.ppp.Rd, man/as.trip.Rd:
+	  Consolidate documentation of methods, functions and coercions
+	  to/from other classes.
+
 	* NAMESPACE, R/AllGenerics.R, R/AllMethod.R,
 	  R/trip2other.R, man/as.SpatialLinesDataFrame.Rd, man/as.ltraj.Rd,
 	  man/trip-deprecated.Rd, man/trip-methods.Rd:

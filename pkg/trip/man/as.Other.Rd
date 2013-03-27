@@ -48,11 +48,12 @@ as.ltraj.trip(xy, typeII=TRUE, slsp="remove")
 
 \arguments{
   
-  \item{from, X, x}{\code{trip} object. For \code{from} in
-    \code{as.psp}, see \code{\link[spatstat]{as.psp}}.}
+  \item{from}{\code{trip} object for
+    \code{as.SpatialLinesDataFrame.trip}, but see
+    \code{\link[spatstat]{as.psp}} for that method.}
 
-  \item{xy}{trip object.}
-  
+  \item{X, x, xy}{\code{trip} object.}
+
   \item{typeII}{see \code{\link[adehabitatLT]{as.ltraj}}.}
   
   \item{slsp}{details for the \code{\link[adehabitatLT]{ltraj}} turning
@@ -84,10 +85,8 @@ if (require(adehabitatLT)) {
     as.ltraj.trip(tr)
 }
 
-if (require(spatstat)) {
-    as.ppp(tr)
-    as.psp(tr)
-}
+as.ppp(tr)
+as.psp(tr)
 
 }
 
