@@ -49,9 +49,10 @@ interpequal <- function(x, dur=NULL, quiet=FALSE) {
     if (is.null(dur))
         stop("equal time duration must be specified \"dur=?\"")
     ## x must be a single trip
-    tor <- x@TOR.columns
-    time <- x[[tor[1]]]
-    id <- factor(x[[tor[2]]])
+    tor <- getTORnames(x)
+    tids <- getTimeID(x)
+    time <- tids[, 1]
+    id <- factor(tids[, 2])
     coords <- coordinates(x)
     x <- coords[,1]
     y <- coords[,2]
@@ -104,7 +105,7 @@ tripGrid.interp <- function(x, grid=NULL, method="count", dur=NULL, ...) {
     res <- SpatialGridDataFrame(grid,
                                 data.frame(z=rep(0, prod(grid@cells.dim))),
                                 CRS(proj4string(x)))
-    tor <- x@TOR.columns
+    tor <- getTORnames(x)
     trip.list <- split(x[, tor], x[[tor[2]]])
     cnt <- 0
     for (this in trip.list) {
@@ -121,8 +122,9 @@ kdePoints <- function (x, h=NULL, grid=NULL, resetTime=TRUE, ...) {
     coords <- coordinates(x)
     xx <- coords[ , 1]
     yy <- coords[ , 2]
-    time <- x[[getTORnames(x)[1]]]
-    id <- x[[getTORnames(x)[2]]]
+    tids <- getTimeID(x)
+    time <- tids[, 1]
+    id <- tids[, 2]
     timesum <- sum(tapply(time, id, function(x) {
         diff(range(unclass(x)))
     }))
