@@ -31,7 +31,6 @@ tripGrid <- function (x, grid=NULL, method="pixellate", ...)
                      "exact\n see ?tripGrid.interp for legacy function")
         stop(msg)
     }
-    require(spatstat)
     if (is.null(grid))
         grid <- makeGridTopology(x)
     spgdf <- SpatialGridDataFrame(grid,

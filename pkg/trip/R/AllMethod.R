@@ -295,7 +295,8 @@ setMethod("recenter", signature(obj="trip"),
 
 ltraj2trip <- function (ltr)
 {
-    require(adehabitatLT)
+    require(adehabitatLT) ||
+        stop("adehabitatLT package is required, but unavailable")
     if (!inherits(ltr, "ltraj"))
         stop("ltr should be of class \"ltraj\"")
     ltr <-  lapply(ltr, function(x) {

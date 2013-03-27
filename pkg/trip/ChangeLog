@@ -1,5 +1,9 @@
 2013-03-27  Sebastian P. Luque <spluque@gmail.com>
 
+	* man/as.Other.Rd, man/readArgos.Rd, man/readDiag.Rd:
+	  Fix argument descriptions and consolidate documentation of
+	  functions for reading Argos data files.
+
 	* man/as.Other.Rd, man/as.SpatialLinesDataFrame.Rd,
 	  man/as.ltraj.Rd, man/as.ppp.Rd, man/as.trip.Rd:
 	  Consolidate documentation of methods, functions and coercions

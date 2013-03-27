@@ -3,7 +3,8 @@
 ## ltraj from adehabitat
 
 as.ltraj.trip <- function(xy, typeII=TRUE, slsp="remove") {
-    require(adehabitatLT)
+    require(adehabitatLT) ||
+        stop("adehabitatLT package is required, but unavailable")
     tor <- getTORnames(xy)
     crds <- coordinates(xy)
     adehabitatLT::as.ltraj(as.data.frame(crds), date=xy[[tor[1]]],
@@ -36,7 +37,6 @@ setAs("trip", "ppp", function(from) as.ppp.trip(from))
 ## spatstat 1.22
 ##as.psp.trip <- function(X) {
 as.psp.trip <- function(x, ..., from, to) {
-    require(spatstat)
     split.X <- split(x, x[[getTORnames(x)[2]]])
     ow <- spatstat::owin(bbox(x)[1,], bbox(x)[2,])
     as.psp.trip1 <- function(this, ow=NULL) {
