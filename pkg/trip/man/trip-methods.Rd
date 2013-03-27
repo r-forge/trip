@@ -114,7 +114,7 @@
 
 d <- data.frame(x=1:10, y=rnorm(10), tms=Sys.time() + 1:10, id=gl(2, 5))
 coordinates(d) <- ~x+y
-tr <- trip(d, c("tms", "id"))
+(tr <- trip(d, c("tms", "id")))
 
 \dontrun{
 ## a simple example with the common fixes required for basic track data
@@ -146,7 +146,10 @@ tr <- trip(dat, c("gmt", "seal"))
 
 }
 
-%% data examples with adding columns, subsetting etc.
+##if (require(adehabitatLT)) {
+##    data(porpoise)
+##    (porpoise <- ltraj2trip(porpoise))
+##}
 
 }
 

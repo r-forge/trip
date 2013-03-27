@@ -48,10 +48,9 @@
 
 \examples{
 
-d <- data.frame(x=1:10, y=rnorm(10), tms=Sys.time() + 1:10,
-                id=gl(2, 5))
-coordinates(d) <- ~x+y
-tr <- trip(d, c("tms", "id"))
+## Continuing the example from '?trip-methods:
+utils::example("trip-methods", package="trip",
+               ask=FALSE, echo=FALSE)
 
 require(spatstat)
 as.ppp(tr)

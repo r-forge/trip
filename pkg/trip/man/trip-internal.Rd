@@ -3,13 +3,6 @@
 \alias{trip-internal}
 
 \alias{.validTORdata}
-\alias{dim.trip}
-\alias{[[.trip}
-\alias{[[<-.trip}
-\alias{$.trip}
-\alias{$<-.trip}
-\alias{print.summary.TORdata}
-\alias{print.trip}
 \alias{.oc.col}
 \alias{.single.trip.split}
 \alias{.g2ow}

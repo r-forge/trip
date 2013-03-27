@@ -54,11 +54,10 @@ trip object, with spatial coordinates reprojected
 
 \examples{
 
-d <- data.frame(x=1:10, y=rnorm(10), tms=Sys.time() + 1:10,
-                id=gl(2, 5))
-coordinates(d) <- ~x+y
+## Continuing the example from '?trip-methods:
+utils::example("trip-methods", package="trip",
+               ask=FALSE, echo=FALSE)
 
-tr <- trip(d, c("tms", "id"))
 proj4string(tr) <- CRS("+proj=laea +lon_0=146")
 tripTransform(tr, "+proj=longlat")
 
