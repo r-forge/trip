@@ -23,19 +23,11 @@ setAs("trip", "ltraj", function(from) as.ltraj.trip(from))
 
 ## do we want IDs or times? (let the user do it?)
 as.ppp.trip <- function(X, ..., fatal) {
-    ## still needed? with importFrom(maptools,as.ppp.SpatialPointsDataFrame)?
-    ##    require(spatstat)
-    ## not needed, and not possible since classes imported using
-    ## NAMESPACE MDS 2012-10-09
-    ## suppressMessages(require(maptools
-    ## require(maptools)
     as.ppp.SpatialPointsDataFrame(X)
 }
 
 setAs("trip", "ppp", function(from) as.ppp.trip(from))
 
-## spatstat 1.22
-##as.psp.trip <- function(X) {
 as.psp.trip <- function(x, ..., from, to) {
     split.X <- split(x, x[[getTORnames(x)[2]]])
     ow <- spatstat::owin(bbox(x)[1,], bbox(x)[2,])
@@ -49,17 +41,13 @@ as.psp.trip <- function(x, ..., from, to) {
         psp(xs[-length(xs)], ys[-length(ys)],
             xs[-1], ys[-1], window=ow, marks=dt)
     }
-    ## there is no split.psp
-    ## spatstat 1.22    do.call("superimposePSP", lapply(split.X, as.psp.trip1, ow=ow))
     do.call("superimpose", lapply(split.X, as.psp.trip1, ow=ow))
 }
 
 setAs("trip", "psp", function(from) as.psp.trip(from))
 
-## GIS integration
-## as.trip.SpatialLinesDataFrame (use summary info - distance, time duration, ID)
 as.trip.SpatialLinesDataFrame <- function(from) {
-    .Deprecated(as.SpatialLinesDataFrame.trip)
+    .Deprecated("as.SpatialLinesDataFrame.trip")
     as.SpatialLinesDataFrame.trip(from)
 }
 as.SpatialLinesDataFrame.trip <- function(from) {

@@ -143,7 +143,6 @@ dat$gmt <- adjust.duplicateTimes(dat$gmt, dat$seal)
 ## finally, convert to Spatial and create trip object
 coordinates(dat) <- c("long", "lat")
 tr <- trip(dat, c("gmt", "seal"))
-
 }
 
 if (require(adehabitatLT)) {

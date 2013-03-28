@@ -44,6 +44,9 @@ calcualtion).
 in the summary.TORdata class.
 
 
+* Write S3 methods for coercion (as.*) to other classes
+
+
 * DONE
 
 ** Make trip.split.exact() a cut() method
