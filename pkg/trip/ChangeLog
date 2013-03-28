@@ -1,3 +1,8 @@
+2013-03-28  Sebastian P. Luque <spluque@gmail.com>
+
+	* R/trip2other.R, TODO, man/trip-methods.Rd:
+	  Double quote argument to .Deprecated().
+
 2013-03-27  Sebastian P. Luque <spluque@gmail.com>
 
 	* R/AllMethod.R, R/trip2other.R, R/tripGrid.R:
