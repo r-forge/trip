@@ -57,7 +57,6 @@
 
 \examples{
 
-\dontrun{
 set.seed(66)
 d <- data.frame(x=1:100, y=rnorm(100, 1, 10),
                 tms=Sys.time() + c(seq(10, 1000, length=50),
@@ -65,11 +64,11 @@ d <- data.frame(x=1:100, y=rnorm(100, 1, 10),
 coordinates(d) <- ~x+y
 tr <- trip(d, c("tms", "id"))
 
-bound.dates <- seq(min(tr$tms) - 1, max(tr$tms)+1, length=5)
+bound.dates <- seq(min(tr$tms) - 1, max(tr$tms) + 1, length=5)
 trip.list <- cut(tr, bound.dates)
 bb <- bbox(tr)
 cn <- c(20, 8)
-g <- GridTopology(bb[,1], apply(bb, 1, diff) / (cn - 1), cn)
+g <- GridTopology(bb[, 1], apply(bb, 1, diff) / (cn - 1), cn)
 
 tg <- tripGrid(tr, grid=g)
 tg <- as.image.SpatialGridDataFrame(tg)
@@ -93,7 +92,7 @@ par(op)
 print("you may need to resize the window to see the grid data")
 
 cn <- c(200, 80)
-g <- GridTopology(bb[,1], apply(bb, 1, diff) / (cn - 1), cn)
+g <- GridTopology(bb[, 1], apply(bb, 1, diff) / (cn - 1), cn)
 
 tg <- tripGrid(tr, grid=g)
 tg <- as.image.SpatialGridDataFrame(tg)
@@ -115,7 +114,6 @@ for (i in 1:length(trip.list)) {
 par(op)
 print("you may need to resize the window to see the grid data")
 
-}
 }
 
 

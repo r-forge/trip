@@ -31,7 +31,7 @@ tripTransform(x, crs, \ldots)
 
 
 \value{
-trip object, with spatial coordinates reprojected
+\code{trip} object, with spatial coordinates reprojected
 }
 
 
@@ -40,7 +40,7 @@ trip object, with spatial coordinates reprojected
 
 \note{
 
-  this is basically a cheat as I don't want to Depends on rgdal for
+  This is basically a cheat as I don't want to Depends on rgdal for
   trip, but cannot figure out the proper way to define things such that
   Suggests is enough for spTransform methods on trips
 
