@@ -1,4 +1,3 @@
-                                                         -*- mode: org; -*-
 
 * Remove dependencies, all imports
 
@@ -53,3 +52,11 @@ in the summary.TORdata class.
 
 ** Investigate uses of "trackDistance" for handling projection option
    vs. default
+
+
+* Emacs local variables
+
+#+STARTUP: content
+# Local Variables:
+# mode: org
+# End:
