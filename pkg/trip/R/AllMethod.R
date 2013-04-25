@@ -70,11 +70,17 @@ setMethod("text", signature(x="trip"),
 
 #setMethod("split", "SpatialPointsDataFrame", split.data.frame)
 
-## setMethod("spTransform", signature=signature(x="trip", CRSobj="CRS"),
-##           function(x, CRSobj, ...) tripTransform(x, CRSobj, ...))
-
-## setMethod("spTransform", signature=signature(x="trip", CRSobj="character"),
-##           function(x, CRSobj, ...) tripTransform(x, CRSobj, ...))
+.tripTransform <- function(x, crs, ...) {
+    if (! inherits(crs, "CRS")) crs <- CRS(crs)
+    tor <- getTORnames(x)
+    xSP <- as(x, "SpatialPointsDataFrame")
+    xSP <- rgdal::spTransform(xSP, crs, ...)
+    trip(xSP, tor)
+}
+setMethod("spTransform", signature=signature(x="trip", CRSobj="CRS"),
+          function(x, CRSobj, ...) trip:::.tripTransform(x, CRSobj, ...))
+setMethod("spTransform", signature=signature(x="trip", CRSobj="character"),
+          function(x, CRSobj, ...) trip:::.tripTransform(x, CRSobj, ...))
 
 ## MDS 2010-07-06
 setMethod("lines", signature(x="trip"),
