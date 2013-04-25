@@ -1,5 +1,15 @@
 # $Id$
 
+tripTransform <- function(x, crs, ...) {
+    require(rgdal) || stop("rgdal package is required, but unavailable")
+    if (! inherits(crs, "CRS")) crs <- CRS(crs)
+    tor <- getTORnames(x)
+    xSP <- as(x, "SpatialPointsDataFrame")
+    xSP <- rgdal::spTransform(xSP, crs, ...)
+    trip(xSP, tor)
+}
+
+
 ###_ + Functions
 
 ## Need to clean up the "internal" functions, and ensure the arguments

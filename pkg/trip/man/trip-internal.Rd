@@ -9,7 +9,6 @@
 \alias{.gcdist.c}
 \alias{.intpFun}
 \alias{.tripRbind}
-\alias{.tripTransform}
 %\alias{spTransform,trip-method}
 
 
