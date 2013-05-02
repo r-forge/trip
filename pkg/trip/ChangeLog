@@ -1,3 +1,7 @@
+2013-05-02  Michael Sumner 
+
+  	* re-dontruned cut.trip.Rd to pass CRAN
+
 2013-03-28  Sebastian P. Luque <spluque@gmail.com>
 
 	* NAMESPACE:
