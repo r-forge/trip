@@ -10,7 +10,8 @@
 \usage{
 behav.bin(z, pimgs, weights = NULL)
 bin.pimg(pimg, xy, w = 1)
-chunk.bin(filename, pimgs, weights = NULL, chunk = 2000, proj = NULL)
+chunk.bin(filename, pimgs, weights = NULL, chunk = 2000, proj = NULL,
+coordtransform = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -27,6 +28,7 @@ chunk.bin(filename, pimgs, weights = NULL, chunk = 2000, proj = NULL)
   
   \item{chunk}{  \code{chunk}  }
   \item{proj}{  \code{proj}  }
+    \item{coordtransform}{  \code{coordtransform}  }
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the

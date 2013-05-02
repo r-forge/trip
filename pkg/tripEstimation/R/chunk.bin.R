@@ -1,5 +1,5 @@
 `chunk.bin` <-
-function (filename, pimgs, weights = NULL, chunk = 2000, proj = NULL)
+function (filename, pimgs, weights = NULL, chunk = 2000, proj = NULL, coordtransform = NULL)
 {
     con <- file(filename, open = "rb")
     dm <- readBin(con, "integer", 3)
@@ -13,7 +13,7 @@ function (filename, pimgs, weights = NULL, chunk = 2000, proj = NULL)
         if (m == 0)
             break
         A <- array(A, c(dm[-3], m))
-	if (!is.null(proj)) A[,1:2,] <- apply(A[,1:2,], 3, function(x) project(x, proj))
+	if (!is.null(proj)) A[,1:2,] <- apply(A[,1:2,], 3, function(x) coordtransform(x, proj))
 	pimgs <- behav.bin(A, pimgs, weights = weights)
 	cat(cnt[i], "...\n", sep = "")
 	i <- i + 1
