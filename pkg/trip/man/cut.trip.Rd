@@ -56,7 +56,7 @@
 
 
 \examples{
-
+\dontrun{
 set.seed(66)
 d <- data.frame(x=1:100, y=rnorm(100, 1, 10),
                 tms=Sys.time() + c(seq(10, 1000, length=50),
@@ -115,7 +115,7 @@ par(op)
 print("you may need to resize the window to see the grid data")
 
 }
-
+}
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
