@@ -62,7 +62,7 @@ if (!is.null(distfunction)) {
   }
 }
 
-if (!is.null(coordtransform) { transf <- coordtransform } else {
+if (!is.null(coordtransform)) { transf <- coordtransform } else {
   # no transformation
   transf <- function(x) x
 }
