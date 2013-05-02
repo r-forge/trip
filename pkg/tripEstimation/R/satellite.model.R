@@ -6,42 +6,46 @@ function(day, X,
          start.x,start.z,
          posn.sigma=1,
          behav.dist="gamma", behav.mean, behav.sd,
-         proj.string = "+proj=longlat"
+         proj.string = "+proj=longlat", distfunction = NULL,
+         coordtransform = NULL
+
          ) {
 
 if (length(day) != nrow(X)) stop("length of times should match number of locations")
 
-  ##
+ ##
   ## Utility functions
   ##
 
-  ## (Great Circle) Distance
+if (!is.null(distfunction)) {
+    dist <- distfunction
+} else {
+  ## (Great Circle) Distance in kilometres
   dist <- function(a,b) {
     r <- cos(pi/180*a[,2])*cos(pi/180*b[,2])*
       cos(pi/180*(b[,1]-a[,1]))+sin(pi/180*a[,2])*sin(pi/180*b[,2])
     6378.137*acos(pmin.int(r, 1))
   }
-
+}
+if (!is.null(coordtransform) { transf <- coordtransform } else {
   # no transformation
-  transf <- function(x, inv = FALSE) x
-
-
+  transf <- function(x) x
+}
   if (!any(grep("longlat", proj.string))) {
-      ## removed by namespace MDS 2011-10-06
-      ## require(rgdal)
+##    require(rgdal) removed by namespace addition 2011-10-09 MDS
+   stop("projections not supported, to do this provide reprojection and distance functions via coordstransform and distfunction")
+##    if (!any(grep("km", proj.string))) {
+##      warning("Distances will be calculated in the units of the coordinate system, but kilometres are assumed for speed.")
+##      print(CRSargs(CRS(proj.string)))
+##    }
+##    dist <- function(a, b) {
+##      sqrt(rowSums((a - b)^2)) }
 
-    if (!any(grep("km", proj.string))) {
-      warning("Distances will be calculated in the units of the coordinate system, but kilometres are assumed for the units of speed calculation.")
-      print(CRSargs(CRS(proj.string)))
-    }
-    dist <- function(a, b) {
-      sqrt(rowSums((a - b)^2)) }
-
-    transf <-  function(x, inv = FALSE) {
-      rubbish <- capture.output(res <- project(x, proj.string, inv))
-      res
-    }
-  }
+##    transf <-  function(x, inv = FALSE) {
+##      rubbish <- capture.output(res <- project(x, proj.string, inv))
+##      res
+##    }
+ }
   ##
   ## Positional contribution to the log posterior
   ##

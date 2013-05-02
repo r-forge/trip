@@ -24,6 +24,10 @@ simply to make the object construction simple.
   \item{behav.mean}{ mean to use for behavioural distribution }
   \item{behav.sd}{ variance for behavioural distribution}
   \item{proj.string}{ PROJ.4 string for coordinate system used }
+    \item{distfunction}{optional function to calculate (track) distance on
+    matrix of coordinates}
+  \item{coordtransform}{optional function to (inverse) transform
+    functions from input projection to longitude/latitude}
 }
 \details{
 \code{posn.sigma} may be a single value for all estimates, or a vector of values for each position

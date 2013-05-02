@@ -9,7 +9,10 @@ function(segments,day,light,
          behav.dist="gamma", behav.mean, behav.sd,
          proj.string = "+proj=longlat",
          ekstrom = c(-5, 3, light.sigma),
-         ekstrom.limit = "light"
+         ekstrom.limit = "light",
+         distfunction = NULL,
+         coordtransform = NULL
+
          ) {
 
 ## add fakes here
@@ -45,34 +48,40 @@ dmz <- dim(proposal.z(matrix(1, 10)))
 if (dmx[1] != length(unique(segments))) stop("number of segments do not match X-proposals")
 if (dmz[1] != (dmx[1] - 1)) stop("number of X-proposals should be one more than Z-proposals")
 
+
   ## assume long/lat
 
+if (!is.null(distfunction)) {
+    dist <- distfunction
+} else {
   ## (Great Circle) Distance in kilometres
   dist <- function(a,b) {
     r <- cos(pi/180*a[,2])*cos(pi/180*b[,2])*
       cos(pi/180*(b[,1]-a[,1]))+sin(pi/180*a[,2])*sin(pi/180*b[,2])
     6378.137*acos(pmin.int(r, 1))
   }
+}
 
+if (!is.null(coordtransform) { transf <- coordtransform } else {
   # no transformation
-  transf <- function(x, inv = FALSE) x
-
+  transf <- function(x) x
+}
 
   if (!any(grep("longlat", proj.string))) {
 ##    require(rgdal) removed by namespace addition 2011-10-09 MDS
+   stop("projections not supported, to do this provide reprojection and distance functions via coordstransform and distfunction")
+##    if (!any(grep("km", proj.string))) {
+##      warning("Distances will be calculated in the units of the coordinate system, but kilometres are assumed for speed.")
+##      print(CRSargs(CRS(proj.string)))
+##    }
+##    dist <- function(a, b) {
+##      sqrt(rowSums((a - b)^2)) }
 
-    if (!any(grep("km", proj.string))) {
-      warning("Distances will be calculated in the units of the coordinate system, but kilometres are assumed for speed.")
-      print(CRSargs(CRS(proj.string)))
-    }
-    dist <- function(a, b) {
-      sqrt(rowSums((a - b)^2)) }
-
-    transf <-  function(x, inv = FALSE) {
-      rubbish <- capture.output(res <- project(x, proj.string, inv))
-      res
-    }
-  }
+##    transf <-  function(x, inv = FALSE) {
+##      rubbish <- capture.output(res <- project(x, proj.string, inv))
+##      res
+##    }
+ }
 
 
 

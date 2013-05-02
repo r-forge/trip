@@ -17,7 +17,8 @@ solar.model(segments, day, light,
 	behav.mean, behav.sd, 
 	proj.string = "+proj=longlat",
    ekstrom = c(-5, 3, light.sigma),
-         ekstrom.limit = "light")
+         ekstrom.limit = "light",  distfunction = NULL,
+         coordtransform = NULL)
 }
 \arguments{
   \item{segments}{ vector identifying twilight segment}
@@ -38,7 +39,12 @@ solar.model(segments, day, light,
   \item{behav.sd}{ variance for behavioural distribution }
   \item{proj.string}{ PROJ.4 string for coordinate system used }
     \item{ekstrom}{ parameters to use for ekstrom limit - min elevation, max elevation, sigma for outside that range }
-  \item{ekstrom.limit}{ mode of ekstrom limit to impose - defaults to "light" }
+  \item{ekstrom.limit}{ mode of ekstrom limit to impose - defaults to
+    "light" }
+    \item{distfunction}{optional function to calculate (track) distance on
+    matrix of coordinates}
+  \item{coordtransform}{optional function to (inverse) transform
+    functions from input projection to longitude/latitude}
 }
 \details{
 The vectors of \code{segments}, \code{day} and \code{light} are expected to 

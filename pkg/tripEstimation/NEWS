@@ -1,3 +1,7 @@
+Changes to version 0.0-41
+	o removed dependency on rgdal, by removing ability to reproject in solar.model and satellite.model, this can still be done manually 
+
+
 Changes to version 0.0-40
 	o version number increment for r-forge build
 	
