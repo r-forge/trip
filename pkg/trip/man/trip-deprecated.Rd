@@ -4,6 +4,7 @@
 
 \alias{trip.split.exact}
 \alias{as.trip.SpatialLinesDataFrame}
+\alias{tripTransform}
 
 % -------------------------------------------------------------------------
 
@@ -18,6 +19,7 @@
 \usage{
 trip.split.exact(x, dates)
 as.trip.SpatialLinesDataFrame(from)
+tripTransform(x, crs, \ldots)
 }
 
 
@@ -28,6 +30,12 @@ as.trip.SpatialLinesDataFrame(from)
   \item{dates}{see \code{\link{cut.trip}}}
 
   \item{from}{see \code{\link{as.SpatialLinesDataFrame.trip}}}
+
+  
+  \item{crs}{CRS object, or PROJ.4 string accepted by
+    \code{\link[sp]{CRS}} }
+  
+  \item{\dots}{Further arguments to \code{\link[rgdal]{spTransform}} }
 
 }
 
