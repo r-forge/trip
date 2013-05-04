@@ -1,6 +1,11 @@
+2013-05-04  Michael Sumner 
+	* 1.1-14
+	* deprecated tripTransform, and removed Suggest for rgdal by adding a trip method for spTransform (enabled by update in sp)
+
+
 2013-05-02  Michael Sumner 
 
-  	* re-dontruned cut.trip.Rd to pass CRAN
+  	* put back dontrun cut.trip.Rd example to pass CRAN
 
 2013-03-28  Sebastian P. Luque <spluque@gmail.com>
 

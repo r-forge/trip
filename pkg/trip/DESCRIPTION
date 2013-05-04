@@ -7,10 +7,10 @@ Authors@R: c(person("Michael", "Sumner", role = c("aut", "cre"),
                     email = "spluque@gmail.com"),
 			person("Andrew", "Irwin", role = "ctb"),
 			person("Francois", "Rousseu", role = "ctb"))
-Version: 1.1-13
+Version: 1.1-14
 Depends: methods, sp (>= 0.9-64), spatstat (>= 1.18-4)
-Imports: maptools
-Suggests: rgdal, adehabitatLT, lattice
+Imports: maptools, sp
+Suggests: adehabitatLT, lattice
 Author: Michael Sumner[aut, cre], Sebastian Luque [ctb], 
 	Andrew Irwin [ctb], Francois Rousseau [ctb]
 Maintainer: Michael D. Sumner <mdsumner@gmail.com>
