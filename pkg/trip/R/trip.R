@@ -1,13 +1,25 @@
 # $Id$
 
+## removed depends sp, suggests rgdal
+## deprecate this, replace with spTransform method below
 tripTransform <- function(x, crs, ...) {
     ##require(rgdal) || stop("rgdal package is required, but unavailable")
+.Deprecated("spTransform")
     if (! inherits(crs, "CRS")) crs <- CRS(crs)
     tor <- getTORnames(x)
     xSP <- as(x, "SpatialPointsDataFrame")
     xSP <- spTransform(xSP, crs, ...)
     trip(xSP, tor)
 }
+
+setMethod("spTransform", "trip",
+          function(x, CRSobj, ...) {
+
+              pts <- try(spTransform(as(x, "SpatialPointsDataFrame"), CRSobj, ...))
+              if(inherits(pts, "try-error")) stop("spTransform requires rgdal, which must be loaded")
+              trip(pts, getTORnames(x))
+##              mystuff(coordinates(y), proj = proj4string(y))
+      })
 
 
 ###_ + Functions
