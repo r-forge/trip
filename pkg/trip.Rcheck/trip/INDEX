@@ -1,0 +1,34 @@
+TimeOrderedRecords      Functions to specify and obtain DateTime and ID
+                        data from within (Spatial) data frames.
+TimeOrderedRecords-class
+                        Class "TimeOrderedRecords"
+adjust.duplicateTimes   Adjust duplicate DateTime values
+argos.sigma             Assign numeric values for Argos "class"
+as.ltraj.trip           Coercion between trip objects and ltraj objects
+as.ppp.trip             Coercion between trip objects and spatstat
+                        objects
+as.trip.SpatialLinesDataFrame
+                        Coercion between trip objects and sp line
+                        objects
+filter.penSS            Non-destructive smoothing filter.
+forceCompliance         Function to ensure dates and times are in order
+                        with trip ID
+makeGridTopology        Generate a GridTopology from a Spatial object
+oc.theme                SeaWiFS ocean colour colours
+ppp-class               Virtual classes for coercion to and from trip
+                        objects
+readArgos               Read Argos "DAT" files
+readDiag                Read Argos DIAG format
+sepIdGaps               Separate a set of IDs based on gaps
+speedfilter             Filter track data for speed
+trackDistance           Determine distance along a track
+trip                    Function to handle animal track data, organized
+                        as "trip"s
+trip-class              Class "trip" ~~~
+trip.split.exact        Split trip events into exact time-based
+                        boundaries.
+tripGrid                Generate a grid of time spent by line-to-cell
+                        gridding
+tripGrid.interp         Generate a grid of time spent using approximate
+                        methods
+tripTransform           Reproject trip objects.

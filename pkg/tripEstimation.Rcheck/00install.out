@@ -1,0 +1,40 @@
+Loading required package: compiler
+[1] 0
+* installing *source* package 'tripEstimation' ...
+** R
+** preparing package for lazy loading
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable 'coords' 
+Note: no visible binding for global variable 'coords' 
+Note: no visible binding for global variable 'coords.nrs' 
+Note: no visible binding for global variable 'coords' 
+Note: no visible binding for global variable 'plotOrder' 
+Note: no visible binding for global variable 'plotOrder' 
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+*** arch - i386
+Loading required package: compiler
+[1] 0
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable 'coords' 
+Note: no visible binding for global variable 'coords' 
+Note: no visible binding for global variable 'coords.nrs' 
+Note: no visible binding for global variable 'coords' 
+Note: no visible binding for global variable 'plotOrder' 
+Note: no visible binding for global variable 'plotOrder' 
+*** arch - x64
+Loading required package: compiler
+[1] 0
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable '.Data' 
+Note: no visible binding for global variable 'coords' 
+Note: no visible binding for global variable 'coords' 
+Note: no visible binding for global variable 'coords.nrs' 
+Note: no visible binding for global variable 'coords' 
+Note: no visible binding for global variable 'plotOrder' 
+Note: no visible binding for global variable 'plotOrder' 
+* DONE (tripEstimation)

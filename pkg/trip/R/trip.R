@@ -12,7 +12,7 @@ tripTransform <- function(x, crs, ...) {
     trip(xSP, tor)
 }
 
-setMethod("spTransform", "trip",
+setMethod("spTransform", signature("trip", "CRS"),
           function(x, CRSobj, ...) {
 
               pts <- try(spTransform(as(x, "SpatialPointsDataFrame"), CRSobj, ...))
