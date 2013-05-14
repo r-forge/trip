@@ -1,5 +1,8 @@
 2013-05-14  Sebastian P. Luque <spluque@gmail.com>
 
+	* R/trip.R:
+	  Deprecated tripTransform() should just use the new method.
+
 	* R/trip.R, man/trip-class.Rd, man/trip-internal.Rd:
 	  Make spTransform not attach rgdal (if available), just check if
 	  the namespace can be loaded. Hacked from
