@@ -1,9 +1,26 @@
-2013-05-04  Michael Sumner 
-	* 1.1-14
-	* deprecated tripTransform, and removed Suggest for rgdal by adding a trip method for spTransform (enabled by update in sp)
+2013-05-14  Sebastian P. Luque <spluque@gmail.com>
 
+	* R/trip.R, man/trip-class.Rd, man/trip-internal.Rd:
+	  Make spTransform not attach rgdal (if available), just check if
+	  the namespace can be loaded. Hacked from
+	  lattice/R/panel.smoothscatter.R.
 
-2013-05-02  Michael Sumner 
+2013-05-14  Michael D. Sumner <mdsumner@gmail.com>
+
+	* DESCRIPTION:
+	  another fix for authors
+
+2013-05-04  Michael D. Sumner <mdsumner@gmail.com>
+
+	* ChangeLog, DESCRIPTION, man/tripTransform.Rd:
+	  new version, removed tripTransform.Rd
+
+	* R/trip.R:
+	  deprecated tripTransform, new method for spTransform,
+	  and removed Suggest for rgdal by adding a trip method for
+	  spTransform (enabled by update in sp).
+
+2013-05-02  Michael D. Sumner <mdsumner@gmail.com>
 
   	* put back dontrun cut.trip.Rd example to pass CRAN
 

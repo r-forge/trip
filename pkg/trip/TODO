@@ -2,7 +2,7 @@
 * Remove dependencies, all imports
 
 
-* Can tripTransform be removed without requiring rgdal for installation?
+* DONE Can tripTransform be removed without requiring rgdal for installation?
 
 
 * Incorporate Pinaud's ideas/requests
