@@ -6,10 +6,7 @@ tripTransform <- function(x, crs, ...) {
     ##require(rgdal) || stop("rgdal package is required, but unavailable")
     .Deprecated("spTransform")
     if (! inherits(crs, "CRS")) crs <- CRS(crs)
-    tor <- getTORnames(x)
-    xSP <- as(x, "SpatialPointsDataFrame")
-    xSP <- spTransform(xSP, crs, ...)
-    trip(xSP, tor)
+    spTransform(x, crs, ...)
 }
 
 setMethod("spTransform", signature("trip", "CRS"),
