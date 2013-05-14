@@ -9,7 +9,6 @@
 \alias{.gcdist.c}
 \alias{.intpFun}
 \alias{.tripRbind}
-%\alias{spTransform,trip-method}
 
 
 \title{Internal trip Functions}

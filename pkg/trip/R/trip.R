@@ -1,10 +1,10 @@
 # $Id$
 
-## removed depends sp, suggests rgdal
-## deprecate this, replace with spTransform method below
+## removed depends sp, suggests rgdal deprecate this, replace with
+## spTransform method below
 tripTransform <- function(x, crs, ...) {
     ##require(rgdal) || stop("rgdal package is required, but unavailable")
-.Deprecated("spTransform")
+    .Deprecated("spTransform")
     if (! inherits(crs, "CRS")) crs <- CRS(crs)
     tor <- getTORnames(x)
     xSP <- as(x, "SpatialPointsDataFrame")
@@ -14,12 +14,22 @@ tripTransform <- function(x, crs, ...) {
 
 setMethod("spTransform", signature("trip", "CRS"),
           function(x, CRSobj, ...) {
-
-              pts <- try(spTransform(as(x, "SpatialPointsDataFrame"), CRSobj, ...))
-              if(inherits(pts, "try-error")) stop("spTransform requires rgdal, which must be loaded")
+              if (!("rgdal" %in% loadedNamespaces())) {
+                  ns <- try(loadNamespace("rgdal"))
+                  if (isNamespace(ns)) {
+                      message("[loaded the rgdal namespace]")
+                  } else {
+                      msg <- paste("This method requires the rgdal package",
+                                   "but is unable to load rgdal namespace",
+                                   sep=",")
+                      stop(msg)
+                  }
+              }
+              pts <- spTransform(as(x, "SpatialPointsDataFrame"),
+                                 CRSobj, ...)
               trip(pts, getTORnames(x))
-##              mystuff(coordinates(y), proj = proj4string(y))
-      })
+              ## mystuff(coordinates(y), proj = proj4string(y))
+          })
 
 
 ###_ + Functions
