@@ -3,12 +3,10 @@
 ## removed depends sp, suggests rgdal deprecate this, replace with
 ## spTransform method below
 tripTransform <- function(x, crs, ...) {
-    ##require(rgdal) || stop("rgdal package is required, but unavailable")
     .Deprecated("spTransform")
     if (! inherits(crs, "CRS")) crs <- CRS(crs)
     spTransform(x, crs, ...)
 }
-
 setMethod("spTransform", signature("trip", "CRS"),
           function(x, CRSobj, ...) {
               if (!("rgdal" %in% loadedNamespaces())) {
@@ -25,7 +23,6 @@ setMethod("spTransform", signature("trip", "CRS"),
               pts <- spTransform(as(x, "SpatialPointsDataFrame"),
                                  CRSobj, ...)
               trip(pts, getTORnames(x))
-              ## mystuff(coordinates(y), proj = proj4string(y))
           })
 
 
